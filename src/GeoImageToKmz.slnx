@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="GeoImageToKmzLib/GeoImageToKmzLib.csproj" />
+  <Project Path="GeoImageToKmzMapEditor/GeoImageToKmzMapEditor.csproj" />
+</Solution>

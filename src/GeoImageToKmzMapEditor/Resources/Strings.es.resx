@@ -1,0 +1,569 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="AppTitle" xml:space="preserve">
+    <value>GeoImageToKmz Editor de mapas</value>
+  </data>
+  <data name="LoadMaps" xml:space="preserve">
+    <value>Cargar mapas</value>
+  </data>
+  <data name="ZoomHere" xml:space="preserve">
+    <value>Zoom aquí</value>
+  </data>
+  <data name="ZoomInToolTip" xml:space="preserve">
+    <value>Acercar (Zoom In)</value>
+  </data>
+  <data name="ZoomOutToolTip" xml:space="preserve">
+    <value>Alejar (Zoom Out)</value>
+  </data>
+  <data name="ZoomFitToolTip" xml:space="preserve">
+    <value>Ajustar mapa completo</value>
+  </data>
+  <data name="OpenRasterDialogTitle" xml:space="preserve">
+    <value>Seleccionar archivos ráster GeoTIFF</value>
+  </data>
+  <data name="GeoTiffFilterName" xml:space="preserve">
+    <value>Archivos GeoTIFF (*.tif, *.tiff)</value>
+  </data>
+  <data name="AllFilesFilterName" xml:space="preserve">
+    <value>Todos los archivos (*.*)</value>
+  </data>
+  <data name="NoMapsLoadedTitle" xml:space="preserve">
+    <value>Ningún mapa cargado</value>
+  </data>
+  <data name="NoMapsLoadedDescription" xml:space="preserve">
+    <value>Arrastra archivos GeoTIFF aquí o usa el botón 'Cargar mapas' del panel izquierdo.</value>
+  </data>
+  <data name="StatusReady" xml:space="preserve">
+    <value>Listo</value>
+  </data>
+  <data name="StatusRendering" xml:space="preserve">
+    <value>Renderizando...</value>
+  </data>
+  <data name="StatusErrorPrefix" xml:space="preserve">
+    <value>Error: {0}</value>
+  </data>
+  <data name="StatusBuffer" xml:space="preserve">
+    <value>Búfer: {0:F1} MB</value>
+  </data>
+  <data name="CropOverlayLabel" xml:space="preserve">
+    <value>Recorte: {0:F0}m × {1:F0}m</value>
+  </data>
+  <data name="CoordinatesPrefix" xml:space="preserve">
+    <value>X: {0:F2}  |  Y: {1:F2}</value>
+  </data>
+  <data name="CoordinatesEmpty" xml:space="preserve">
+    <value>Coord: --</value>
+  </data>
+  <data name="CropDimensionsEmpty" xml:space="preserve">
+    <value>Sin recorte seleccionado</value>
+  </data>
+  <data name="CropDimensionsFormat" xml:space="preserve">
+    <value>Recorte: {0:F1}m × {1:F1}m</value>
+  </data>
+  <data name="MemoryStatusFormat" xml:space="preserve">
+    <value>Búfer RAM: {0} MB</value>
+  </data>
+  <data name="MapsCountFormat" xml:space="preserve">
+    <value>{0} mapa(s)</value>
+  </data>
+  <data name="LayersLoadedSingular" xml:space="preserve">
+    <value>1 capa cargada</value>
+  </data>
+  <data name="LayersLoadedPlural" xml:space="preserve">
+    <value>{0} capas cargadas</value>
+  </data>
+  <data name="LoadingMaps" xml:space="preserve">
+    <value>Cargando mapas...</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Cargando</value>
+  </data>
+  <data name="MapsLoadedCount" xml:space="preserve">
+    <value>Se cargaron {0} mapa(s).</value>
+  </data>
+  <data name="NoMapsLoadedStatus" xml:space="preserve">
+    <value>No se cargó ningún mapa.</value>
+  </data>
+  <data name="LoadingFile" xml:space="preserve">
+    <value>Cargando {0}...</value>
+  </data>
+  <data name="FileLoadedStatus" xml:space="preserve">
+    <value>Cargado: {0} ({1:N0}x{2:N0} px, {3})</value>
+  </data>
+  <data name="CouldNotLoadFile" xml:space="preserve">
+    <value>No se pudo cargar el archivo ráster seleccionado.</value>
+  </data>
+  <data name="ScanningFolder" xml:space="preserve">
+    <value>Escaneando carpeta {0}...</value>
+  </data>
+  <data name="FolderMapsAdded" xml:space="preserve">
+    <value>Se agregaron {0} mapa(s) desde la carpeta.</value>
+  </data>
+  <data name="ModeCroppingActive" xml:space="preserve">
+    <value>Modo de recorte activado: Arrastra en el mapa con clic izquierdo para dibujar el área.</value>
+  </data>
+  <data name="ModeMeasuringActive" xml:space="preserve">
+    <value>Modo medición activado: Haz clic y arrastra para medir distancias sobre el terreno.</value>
+  </data>
+  <data name="ModeNavigationActive" xml:space="preserve">
+    <value>Modo navegación activado.</value>
+  </data>
+  <data name="BandSingular" xml:space="preserve">
+    <value>1 banda</value>
+  </data>
+  <data name="BandPlural" xml:space="preserve">
+    <value>{0} bandas</value>
+  </data>
+  <data name="UnknownNoGeoreference" xml:space="preserve">
+    <value>Desconocida / Sin georreferencia</value>
+  </data>
+  <data name="GeoreferencedWkt" xml:space="preserve">
+    <value>Georreferenciada (WKT)</value>
+  </data>
+  <data name="ErrorGeoTiffNotFound" xml:space="preserve">
+    <value>El archivo de mapa GeoTIFF no existe.</value>
+  </data>
+  <data name="ErrorCouldNotOpenRaster" xml:space="preserve">
+    <value>No se pudo abrir el archivo ráster '{0}' con GDAL.</value>
+  </data>
+  <data name="KmzExportTitle" xml:space="preserve">
+    <value>Exportar a KMZ (Google Earth / Garmin)</value>
+  </data>
+  <data name="KmzExportHeader" xml:space="preserve">
+    <value>Exportación Geoespacial KMZ</value>
+  </data>
+  <data name="KmzExportDescription" xml:space="preserve">
+    <value>Empaqueta las capas ráster seleccionadas en un archivo KMZ con pirámide de teselas.</value>
+  </data>
+  <data name="KmzExportAreaTitle" xml:space="preserve">
+    <value>Selección de área a exportar:</value>
+  </data>
+  <data name="KmzExportAllLayers" xml:space="preserve">
+    <value>Exportar todo el mapa (todas las capas visibles)</value>
+  </data>
+  <data name="KmzExportCropOnly" xml:space="preserve">
+    <value>Exportar únicamente el área de recorte seleccionada</value>
+  </data>
+  <data name="KmzExportCropNone" xml:space="preserve">
+    <value>Exportar área de recorte (ninguna seleccionada)</value>
+  </data>
+  <data name="KmzExportCropFormat" xml:space="preserve">
+    <value>Exportar área de recorte ({0:F0}m × {1:F0}m)</value>
+  </data>
+  <data name="KmzExportTilingSettings" xml:space="preserve">
+    <value>Ajustes de teselado:</value>
+  </data>
+  <data name="KmzExportTileSize" xml:space="preserve">
+    <value>Tamaño tesela (px):</value>
+  </data>
+  <data name="KmzExportJpegQuality" xml:space="preserve">
+    <value>Calidad JPEG (%):</value>
+  </data>
+  <data name="KmzExportOutputPathTitle" xml:space="preserve">
+    <value>Ruta de salida KMZ:</value>
+  </data>
+  <data name="KmzExportOutputPathWatermark" xml:space="preserve">
+    <value>Seleccionar destino del archivo .kmz...</value>
+  </data>
+  <data name="KmzExportBrowse" xml:space="preserve">
+    <value>Examinar...</value>
+  </data>
+  <data name="KmzExportButton" xml:space="preserve">
+    <value>Exportar a KMZ</value>
+  </data>
+  <data name="KmzExportReadyStatus" xml:space="preserve">
+    <value>Listo para exportar.</value>
+  </data>
+  <data name="KmzExportExportingStatus" xml:space="preserve">
+    <value>Exportando...</value>
+  </data>
+  <data name="KmzExportSuccessStatus" xml:space="preserve">
+    <value>¡Exportación completada con éxito!</value>
+  </data>
+  <data name="KmzExportErrorPrefix" xml:space="preserve">
+    <value>Error al exportar: {0}</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="KmzExportSaveDialogTitle" xml:space="preserve">
+    <value>Guardar archivo KMZ</value>
+  </data>
+  <data name="KmzExportKmzFilter" xml:space="preserve">
+    <value>Archivos KMZ (*.kmz)</value>
+  </data>
+  <data name="KmzExportErrorOutputPath" xml:space="preserve">
+    <value>Indica una ruta de salida válida.</value>
+  </data>
+  <data name="KmzExportErrorNoLayers" xml:space="preserve">
+    <value>No hay capas visibles para exportar.</value>
+  </data>
+  <data name="KmzExportErrorNoCrop" xml:space="preserve">
+    <value>No hay ninguna extensión de recorte seleccionada.</value>
+  </data>
+  <data name="NewProject" xml:space="preserve">
+    <value>Nuevo proyecto</value>
+  </data>
+  <data name="NewProjectToolTip" xml:space="preserve">
+    <value>Crear un nuevo proyecto de mapas vacío</value>
+  </data>
+  <data name="OpenProject" xml:space="preserve">
+    <value>Abrir proyecto</value>
+  </data>
+  <data name="OpenProjectToolTip" xml:space="preserve">
+    <value>Abrir un proyecto de mapas guardado (.ttk, .json)</value>
+  </data>
+  <data name="SaveProject" xml:space="preserve">
+    <value>Guardar proyecto</value>
+  </data>
+  <data name="SaveProjectToolTip" xml:space="preserve">
+    <value>Guardar el proyecto de mapas actual</value>
+  </data>
+  <data name="SaveProjectAs" xml:space="preserve">
+    <value>Guardar proyecto como...</value>
+  </data>
+  <data name="ProjectDefaultTitle" xml:space="preserve">
+    <value>Proyecto</value>
+  </data>
+  <data name="ProjectNameNumberedFormat" xml:space="preserve">
+    <value>Proyecto {0}</value>
+  </data>
+  <data name="ProjectFilterName" xml:space="preserve">
+    <value>Proyecto de mapas (*.ttk)</value>
+  </data>
+  <data name="OpenProjectDialogTitle" xml:space="preserve">
+    <value>Abrir proyecto de mapas</value>
+  </data>
+  <data name="SaveProjectDialogTitle" xml:space="preserve">
+    <value>Guardar proyecto de mapas</value>
+  </data>
+  <data name="ProjectSavedStatus" xml:space="preserve">
+    <value>Proyecto guardado en {0}</value>
+  </data>
+  <data name="ProjectRenamedStatus" xml:space="preserve">
+    <value>Proyecto renombrado a {0}</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Cambiar nombre</value>
+  </data>
+  <data name="ProjectLoadedStatus" xml:space="preserve">
+    <value>Proyecto cargado: {0}</value>
+  </data>
+  <data name="ProjectNewStatus" xml:space="preserve">
+    <value>Nuevo proyecto creado.</value>
+  </data>
+  <data name="ProjectSaveError" xml:space="preserve">
+    <value>Error al guardar el proyecto: {0}</value>
+  </data>
+  <data name="ProjectOpenError" xml:space="preserve">
+    <value>Error al abrir el proyecto: {0}</value>
+  </data>
+  <data name="ExportKmz" xml:space="preserve">
+    <value>Exportar a KMZ</value>
+  </data>
+  <data name="ExportKmzToolTip" xml:space="preserve">
+    <value>Exportar el mapa completo o el área recortada a un archivo KMZ</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="CloseProject" xml:space="preserve">
+    <value>Cerrar proyecto</value>
+  </data>
+  <data name="CloseMap" xml:space="preserve">
+    <value>Cerrar mapa</value>
+  </data>
+  <data name="CloseTrack" xml:space="preserve">
+    <value>Cerrar track</value>
+  </data>
+  <data name="LoadTracks" xml:space="preserve">
+    <value>Cargar tracks</value>
+  </data>
+  <data name="LoadTracksToolTip" xml:space="preserve">
+    <value>Cargar tracks GPX (*.gpx)</value>
+  </data>
+  <data name="TracksSection" xml:space="preserve">
+    <value>Tracks</value>
+  </data>
+  <data name="MapsSection" xml:space="preserve">
+    <value>Mapas</value>
+  </data>
+  <data name="GpxFilterName" xml:space="preserve">
+    <value>Archivos GPX (*.gpx)</value>
+  </data>
+  <data name="OpenTrackDialogTitle" xml:space="preserve">
+    <value>Seleccionar archivos GPX de tracks</value>
+  </data>
+  <data name="TracksLoadedCount" xml:space="preserve">
+    <value>{0} tracks cargados</value>
+  </data>
+  <data name="TrackLoadedStatus" xml:space="preserve">
+    <value>Track cargado: {0}</value>
+  </data>
+  <data name="TracksCountFormat" xml:space="preserve">
+    <value>{0} tracks</value>
+  </data>
+  <data name="ExportOptionsTitle" xml:space="preserve">
+    <value>Opciones de exportado</value>
+  </data>
+  <data name="ExportDestinationGroup" xml:space="preserve">
+    <value>Destino del archivo</value>
+  </data>
+  <data name="ExportDirectoryLabel" xml:space="preserve">
+    <value>Directorio de salida:</value>
+  </data>
+  <data name="ExportDirectoryWatermark" xml:space="preserve">
+    <value>Seleccionar carpeta de destino...</value>
+  </data>
+  <data name="ExportKmzNameLabel" xml:space="preserve">
+    <value>Nombre del mapa KMZ:</value>
+  </data>
+  <data name="ExportKmzNameWatermark" xml:space="preserve">
+    <value>nombre_mapa.kmz</value>
+  </data>
+  <data name="ExportSelectFolderDialogTitle" xml:space="preserve">
+    <value>Seleccionar directorio de salida</value>
+  </data>
+  <data name="ExportOutputSettingsGroup" xml:space="preserve">
+    <value>Configuración de salida</value>
+  </data>
+  <data name="ExportTileSizeLabel" xml:space="preserve">
+    <value>Tamaño de tesela (px):</value>
+  </data>
+  <data name="ExportMaxTilesLabel" xml:space="preserve">
+    <value>Máximo de teselas:</value>
+  </data>
+  <data name="ExportScaleFactorLabel" xml:space="preserve">
+    <value>Factor de escala:</value>
+  </data>
+  <data name="ExportJpegQualityLabel" xml:space="preserve">
+    <value>Calidad JPEG (%):</value>
+  </data>
+  <data name="ExportBrightnessGroup" xml:space="preserve">
+    <value>Ajustes de brillo</value>
+  </data>
+  <data name="ExportBrightnessDescription" xml:space="preserve">
+    <value>Aclara las teselas para que se vean con luz solar directa en el GPS.</value>
+  </data>
+  <data name="ExportBrightnessEnable" xml:space="preserve">
+    <value>Aclarar las imágenes antes de generar el KMZ</value>
+  </data>
+  <data name="ExportGammaLabel" xml:space="preserve">
+    <value>Gamma (0,1-10):</value>
+  </data>
+  <data name="ExportBrightnessPercentLabel" xml:space="preserve">
+    <value>Brillo % (0-100):</value>
+  </data>
+  <data name="ExportContrastLabel" xml:space="preserve">
+    <value>Contraste (0,1-10):</value>
+  </data>
+  <data name="ExportBrightnessExplanation" xml:space="preserve">
+    <value>Gamma por encima de 1 aclara los tonos medios; el brillo levanta las zonas oscuras y el contraste amplía la diferencia entre claros y oscuros.</value>
+  </data>
+  <data name="ExportAreaGroup" xml:space="preserve">
+    <value>Selección de área a exportar</value>
+  </data>
+  <data name="ExportTrackMarginLabel" xml:space="preserve">
+    <value>Distancia mínima al track (metros):</value>
+  </data>
+  <data name="OptionNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="ExportCancelButton" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="ExportCancellingStatus" xml:space="preserve">
+    <value>Cancelando...</value>
+  </data>
+  <data name="ExportCancelledStatus" xml:space="preserve">
+    <value>Exportación cancelada.</value>
+  </data>
+  <data name="ProgressStepFormat" xml:space="preserve">
+    <value>Paso {0} de {1}</value>
+  </data>
+  <data name="ProgressStepPercentageFormat" xml:space="preserve">
+    <value>Progreso del paso: {0}</value>
+  </data>
+  <data name="StepCroppingTrack" xml:space="preserve">
+    <value>Recortando imágenes al contorno del track...</value>
+  </data>
+  <data name="ExportErrorDirectoryNotFound" xml:space="preserve">
+    <value>El directorio de salida especificado no existe.</value>
+  </data>
+  <data name="ExportErrorInvalidFileName" xml:space="preserve">
+    <value>El nombre de archivo KMZ no es válido.</value>
+  </data>
+  <data name="OpenContainingFolder" xml:space="preserve">
+    <value>Abrir carpeta contenedora</value>
+  </data>
+  <data name="CloseSelectedMaps" xml:space="preserve">
+    <value>Cerrar mapas seleccionados</value>
+  </data>
+  <data name="MenuOptions" xml:space="preserve">
+    <value>Opciones</value>
+  </data>
+  <data name="MenuFile" xml:space="preserve">
+    <value>Archivo</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="MenuLanguage" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="LanguageSpanish" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="LanguageEnglish" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="MenuDirectories" xml:space="preserve">
+    <value>Directorios</value>
+  </data>
+  <data name="TempDirectoriesTitle" xml:space="preserve">
+    <value>Directorios temporales</value>
+  </data>
+  <data name="TempDirectoriesDescription" xml:space="preserve">
+    <value>Configuración del directorio temporal donde guardar las teselas y ficheros intermedios durante el procesamiento.</value>
+  </data>
+  <data name="CurrentTempDirectoryLabel" xml:space="preserve">
+    <value>Directorio temporal actual:</value>
+  </data>
+  <data name="CustomTempDirectoryLabel" xml:space="preserve">
+    <value>Directorio temporal personalizado:</value>
+  </data>
+  <data name="CustomTempDirectoryWatermark" xml:space="preserve">
+    <value>Ruta personalizada para temporales...</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Examinar...</value>
+  </data>
+  <data name="ButtonResetDefault" xml:space="preserve">
+    <value>Restablecer predeterminado</value>
+  </data>
+  <data name="ButtonClearTemp" xml:space="preserve">
+    <value>Vaciar directorio temporal</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="TempDirectorySizeFormat" xml:space="preserve">
+    <value>Espacio ocupado: {0:F2} MB</value>
+  </data>
+  <data name="TempDirectoryClearedSuccess" xml:space="preserve">
+    <value>Directorio temporal vaciado ({0} archivos, {1} carpetas eliminadas, {2:F2} MB liberados).</value>
+  </data>
+  <data name="TempDirectoryUpdatedStatus" xml:space="preserve">
+    <value>Directorio temporal actualizado: {0}</value>
+  </data>
+  <data name="SelectTempFolderDialogTitle" xml:space="preserve">
+    <value>Seleccionar carpeta para directorios temporales</value>
+  </data>
+  <data name="SearchTrackOrMapWatermark" xml:space="preserve">
+    <value>Buscar track o mapa...</value>
+  </data>
+  <data name="SavePromptTitle" xml:space="preserve">
+    <value>¿Guardar cambios?</value>
+  </data>
+  <data name="SavePromptMessage" xml:space="preserve">
+    <value>¿Desea guardar los cambios en el proyecto '{0}'?</value>
+  </data>
+  <data name="ButtonYes" xml:space="preserve">
+    <value>Sí</value>
+  </data>
+  <data name="ButtonNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="ExportModeTrackContour" xml:space="preserve">
+    <value>Reducir mapa al contorno del track</value>
+  </data>
+  <data name="ExportModeSelectedTiles" xml:space="preserve">
+    <value>Teselas seleccionadas</value>
+  </data>
+  <data name="ExportModeSelectedMaps" xml:space="preserve">
+    <value>Mapas seleccionados</value>
+  </data>
+  <data name="ExportSelectedTilesCounterFormat" xml:space="preserve">
+    <value>{0}/{1}</value>
+  </data>
+  <data name="ExportNoTilesSelectedError" xml:space="preserve">
+    <value>Debe seleccionar al menos una tesela para exportar.</value>
+  </data>
+  <data name="ExportNoTrackSelectedError" xml:space="preserve">
+    <value>Debe seleccionar un track para exportar.</value>
+  </data>
+  <data name="ExportClearSelectedTiles" xml:space="preserve">
+    <value>Limpiar teselas</value>
+  </data>
+  <data name="ExportOptimizeSelectedTiles" xml:space="preserve">
+    <value>Optimizar teselas</value>
+  </data>
+  <data name="ExportLockTileSize" xml:space="preserve">
+    <value>Fijar tamaño de las teselas</value>
+  </data>
+  <data name="ExportSelectTrackTiles" xml:space="preserve">
+    <value>Seleccionar teselas del track</value>
+  </data>
+  <data name="ExportSelectTrackTilesButton" xml:space="preserve">
+    <value>Seleccionar teselas</value>
+  </data>
+</root>

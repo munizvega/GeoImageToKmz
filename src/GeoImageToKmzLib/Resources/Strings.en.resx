@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="ErrorGpxNotFound" xml:space="preserve">
+    <value>The specified GPX file does not exist.</value>
+  </data>
+  <data name="ErrorGpxWithoutPoints" xml:space="preserve">
+    <value>The GPX file does not contain any points.</value>
+  </data>
+  <data name="ErrorImagesFolderNotFound" xml:space="preserve">
+    <value>The images directory does not exist: {0}</value>
+  </data>
+  <data name="ErrorNoIntersectingTiles" xml:space="preserve">
+    <value>No TIFFs found intersecting the GPX track.</value>
+  </data>
+  <data name="ErrorTooManyTiles" xml:space="preserve">
+    <value>{0} tiles were generated, exceeding the limit of {1}.</value>
+  </data>
+  <data name="ErrorInvalidGpxPath" xml:space="preserve">
+    <value>Invalid GPX file path.</value>
+  </data>
+  <data name="ErrorInvalidImagesPath" xml:space="preserve">
+    <value>Invalid images directory path.</value>
+  </data>
+  <data name="ErrorInvalidOutputPath" xml:space="preserve">
+    <value>Invalid output path.</value>
+  </data>
+  <data name="ErrorInvalidWorkspacePath" xml:space="preserve">
+    <value>Invalid temporary workspace path.</value>
+  </data>
+  <data name="StepSearchingImages" xml:space="preserve">
+    <value>Searching images intersecting GPX...</value>
+  </data>
+  <data name="StepCroppingImages" xml:space="preserve">
+    <value>Cropping {0} image(s)...</value>
+  </data>
+  <data name="StepReprojecting" xml:space="preserve">
+    <value>Reprojecting image...</value>
+  </data>
+  <data name="StepMerging" xml:space="preserve">
+    <value>Merging images...</value>
+  </data>
+  <data name="StepResizing" xml:space="preserve">
+    <value>Resizing image...</value>
+  </data>
+  <data name="StepBrightening" xml:space="preserve">
+    <value>Adjusting brightness and contrast...</value>
+  </data>
+  <data name="StepSplitting" xml:space="preserve">
+    <value>Splitting into tiles...</value>
+  </data>
+  <data name="StepExportingJpeg" xml:space="preserve">
+    <value>Exporting tiles to JPEG...</value>
+  </data>
+  <data name="StepBuildingKmz" xml:space="preserve">
+    <value>Generating KMZ file...</value>
+  </data>
+  <data name="StepCompleted" xml:space="preserve">
+    <value>Conversion completed.</value>
+  </data>
+  <data name="ConsoleUsage" xml:space="preserve">
+    <value>Usage: TifToKmz --gpx &lt;path&gt; --imagesPath &lt;path&gt; --outputPath &lt;path&gt; [--config &lt;path&gt;]</value>
+  </data>
+  <data name="ConsoleHelpOptions" xml:space="preserve">
+    <value>Options:
+  --gpx &lt;path&gt;         Path to the GPX track file.
+  --imagesPath &lt;path&gt;  Path to the directory containing TIFF images.
+  --outputPath &lt;path&gt;  Path to the output KMZ file.
+  --config &lt;path&gt;      Optional path to custom appsettings.json configuration file.</value>
+  </data>
+  <data name="ConsoleHelpLanguageComment" xml:space="preserve">
+    <value>Language can be configured in appsettings.json using the 'Language' property (e.g. 'es', 'en', or empty/'system' for system default).</value>
+  </data>
+  <data name="ConsoleStartingProcessing" xml:space="preserve">
+    <value>Starting processing...</value>
+  </data>
+  <data name="ConsoleGpxPath" xml:space="preserve">
+    <value>GPX Path: {0}</value>
+  </data>
+  <data name="ConsoleImagesPath" xml:space="preserve">
+    <value>Images Path: {0}</value>
+  </data>
+  <data name="ConsoleOutputPath" xml:space="preserve">
+    <value>Output Path: {0}</value>
+  </data>
+  <data name="ConsoleProgressFormat" xml:space="preserve">
+    <value>[Progress] {0}</value>
+  </data>
+  <data name="ConsoleDetailedProgressFormat" xml:space="preserve">
+    <value>[Progress] {0:F0}%</value>
+  </data>
+  <data name="ConsoleDone" xml:space="preserve">
+    <value>Done.</value>
+  </data>
+  <data name="ConsoleErrorDuringProcessing" xml:space="preserve">
+    <value>Error during processing: {0}</value>
+  </data>
+  <data name="ErrorInvalidPathCharacters" xml:space="preserve">
+    <value>The path provided for {0} contains invalid characters: {1}</value>
+  </data>
+</root>

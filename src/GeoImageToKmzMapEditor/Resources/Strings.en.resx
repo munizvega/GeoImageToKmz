@@ -1,0 +1,569 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="AppTitle" xml:space="preserve">
+    <value>GeoImageToKmz Map Editor</value>
+  </data>
+  <data name="LoadMaps" xml:space="preserve">
+    <value>Load maps</value>
+  </data>
+  <data name="ZoomHere" xml:space="preserve">
+    <value>Zoom here</value>
+  </data>
+  <data name="ZoomInToolTip" xml:space="preserve">
+    <value>Zoom In</value>
+  </data>
+  <data name="ZoomOutToolTip" xml:space="preserve">
+    <value>Zoom Out</value>
+  </data>
+  <data name="ZoomFitToolTip" xml:space="preserve">
+    <value>Fit full map</value>
+  </data>
+  <data name="OpenRasterDialogTitle" xml:space="preserve">
+    <value>Select GeoTIFF raster files</value>
+  </data>
+  <data name="GeoTiffFilterName" xml:space="preserve">
+    <value>GeoTIFF files (*.tif, *.tiff)</value>
+  </data>
+  <data name="AllFilesFilterName" xml:space="preserve">
+    <value>All files (*.*)</value>
+  </data>
+  <data name="NoMapsLoadedTitle" xml:space="preserve">
+    <value>No maps loaded</value>
+  </data>
+  <data name="NoMapsLoadedDescription" xml:space="preserve">
+    <value>Drag GeoTIFF files here or use the 'Load maps' button on the left panel.</value>
+  </data>
+  <data name="StatusReady" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="StatusRendering" xml:space="preserve">
+    <value>Rendering...</value>
+  </data>
+  <data name="StatusErrorPrefix" xml:space="preserve">
+    <value>Error: {0}</value>
+  </data>
+  <data name="StatusBuffer" xml:space="preserve">
+    <value>Buffer: {0:F1} MB</value>
+  </data>
+  <data name="CropOverlayLabel" xml:space="preserve">
+    <value>Crop: {0:F0}m × {1:F0}m</value>
+  </data>
+  <data name="CoordinatesPrefix" xml:space="preserve">
+    <value>X: {0:F2}  |  Y: {1:F2}</value>
+  </data>
+  <data name="CoordinatesEmpty" xml:space="preserve">
+    <value>Coord: --</value>
+  </data>
+  <data name="CropDimensionsEmpty" xml:space="preserve">
+    <value>No crop selected</value>
+  </data>
+  <data name="CropDimensionsFormat" xml:space="preserve">
+    <value>Crop: {0:F1}m × {1:F1}m</value>
+  </data>
+  <data name="MemoryStatusFormat" xml:space="preserve">
+    <value>RAM Buffer: {0} MB</value>
+  </data>
+  <data name="MapsCountFormat" xml:space="preserve">
+    <value>{0} map(s)</value>
+  </data>
+  <data name="LayersLoadedSingular" xml:space="preserve">
+    <value>1 layer loaded</value>
+  </data>
+  <data name="LayersLoadedPlural" xml:space="preserve">
+    <value>{0} layers loaded</value>
+  </data>
+  <data name="LoadingMaps" xml:space="preserve">
+    <value>Loading maps...</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading</value>
+  </data>
+  <data name="MapsLoadedCount" xml:space="preserve">
+    <value>{0} map(s) loaded.</value>
+  </data>
+  <data name="NoMapsLoadedStatus" xml:space="preserve">
+    <value>No maps were loaded.</value>
+  </data>
+  <data name="LoadingFile" xml:space="preserve">
+    <value>Loading {0}...</value>
+  </data>
+  <data name="FileLoadedStatus" xml:space="preserve">
+    <value>Loaded: {0} ({1:N0}x{2:N0} px, {3})</value>
+  </data>
+  <data name="CouldNotLoadFile" xml:space="preserve">
+    <value>Could not load the selected raster file.</value>
+  </data>
+  <data name="ScanningFolder" xml:space="preserve">
+    <value>Scanning folder {0}...</value>
+  </data>
+  <data name="FolderMapsAdded" xml:space="preserve">
+    <value>{0} map(s) added from folder.</value>
+  </data>
+  <data name="ModeCroppingActive" xml:space="preserve">
+    <value>Crop mode active: Drag with left click on the map to draw the area.</value>
+  </data>
+  <data name="ModeMeasuringActive" xml:space="preserve">
+    <value>Measure mode active: Click and drag to measure ground distances.</value>
+  </data>
+  <data name="ModeNavigationActive" xml:space="preserve">
+    <value>Navigation mode active.</value>
+  </data>
+  <data name="BandSingular" xml:space="preserve">
+    <value>1 band</value>
+  </data>
+  <data name="BandPlural" xml:space="preserve">
+    <value>{0} bands</value>
+  </data>
+  <data name="UnknownNoGeoreference" xml:space="preserve">
+    <value>Unknown / No georeference</value>
+  </data>
+  <data name="GeoreferencedWkt" xml:space="preserve">
+    <value>Georeferenced (WKT)</value>
+  </data>
+  <data name="ErrorGeoTiffNotFound" xml:space="preserve">
+    <value>The GeoTIFF map file does not exist.</value>
+  </data>
+  <data name="ErrorCouldNotOpenRaster" xml:space="preserve">
+    <value>Could not open raster file '{0}' with GDAL.</value>
+  </data>
+  <data name="KmzExportTitle" xml:space="preserve">
+    <value>Export to KMZ (Google Earth / Garmin)</value>
+  </data>
+  <data name="KmzExportHeader" xml:space="preserve">
+    <value>Geospatial KMZ Export</value>
+  </data>
+  <data name="KmzExportDescription" xml:space="preserve">
+    <value>Packages selected raster layers into a KMZ file with tile pyramid.</value>
+  </data>
+  <data name="KmzExportAreaTitle" xml:space="preserve">
+    <value>Reduce map to track contour:</value>
+  </data>
+  <data name="KmzExportAllLayers" xml:space="preserve">
+    <value>Export full map (all visible layers)</value>
+  </data>
+  <data name="KmzExportCropOnly" xml:space="preserve">
+    <value>Export selected crop area only</value>
+  </data>
+  <data name="KmzExportCropNone" xml:space="preserve">
+    <value>Export crop area (none selected)</value>
+  </data>
+  <data name="KmzExportCropFormat" xml:space="preserve">
+    <value>Export crop area ({0:F0}m × {1:F0}m)</value>
+  </data>
+  <data name="KmzExportTilingSettings" xml:space="preserve">
+    <value>Tiling settings:</value>
+  </data>
+  <data name="KmzExportTileSize" xml:space="preserve">
+    <value>Tile size (px):</value>
+  </data>
+  <data name="KmzExportJpegQuality" xml:space="preserve">
+    <value>JPEG quality (%):</value>
+  </data>
+  <data name="KmzExportOutputPathTitle" xml:space="preserve">
+    <value>KMZ output path:</value>
+  </data>
+  <data name="KmzExportOutputPathWatermark" xml:space="preserve">
+    <value>Select .kmz destination file...</value>
+  </data>
+  <data name="KmzExportBrowse" xml:space="preserve">
+    <value>Browse...</value>
+  </data>
+  <data name="KmzExportButton" xml:space="preserve">
+    <value>Export to KMZ</value>
+  </data>
+  <data name="KmzExportReadyStatus" xml:space="preserve">
+    <value>Ready to export.</value>
+  </data>
+  <data name="KmzExportExportingStatus" xml:space="preserve">
+    <value>Exporting...</value>
+  </data>
+  <data name="KmzExportSuccessStatus" xml:space="preserve">
+    <value>Export completed successfully!</value>
+  </data>
+  <data name="KmzExportErrorPrefix" xml:space="preserve">
+    <value>Error during export: {0}</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="KmzExportSaveDialogTitle" xml:space="preserve">
+    <value>Save KMZ file</value>
+  </data>
+  <data name="KmzExportKmzFilter" xml:space="preserve">
+    <value>KMZ files (*.kmz)</value>
+  </data>
+  <data name="KmzExportErrorOutputPath" xml:space="preserve">
+    <value>Please specify a valid output path.</value>
+  </data>
+  <data name="KmzExportErrorNoLayers" xml:space="preserve">
+    <value>No visible layers to export.</value>
+  </data>
+  <data name="KmzExportErrorNoCrop" xml:space="preserve">
+    <value>No crop extent selected.</value>
+  </data>
+  <data name="NewProject" xml:space="preserve">
+    <value>New Project</value>
+  </data>
+  <data name="NewProjectToolTip" xml:space="preserve">
+    <value>Create a new empty map project</value>
+  </data>
+  <data name="OpenProject" xml:space="preserve">
+    <value>Open Project</value>
+  </data>
+  <data name="OpenProjectToolTip" xml:space="preserve">
+    <value>Open a saved map project (.ttk, .json)</value>
+  </data>
+  <data name="SaveProject" xml:space="preserve">
+    <value>Save Project</value>
+  </data>
+  <data name="SaveProjectToolTip" xml:space="preserve">
+    <value>Save the current map project</value>
+  </data>
+  <data name="SaveProjectAs" xml:space="preserve">
+    <value>Save Project As...</value>
+  </data>
+  <data name="ProjectDefaultTitle" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="ProjectNameNumberedFormat" xml:space="preserve">
+    <value>Project {0}</value>
+  </data>
+  <data name="ProjectFilterName" xml:space="preserve">
+    <value>Map Project (*.ttk)</value>
+  </data>
+  <data name="OpenProjectDialogTitle" xml:space="preserve">
+    <value>Open Map Project</value>
+  </data>
+  <data name="SaveProjectDialogTitle" xml:space="preserve">
+    <value>Save Map Project</value>
+  </data>
+  <data name="ProjectSavedStatus" xml:space="preserve">
+    <value>Project saved to {0}</value>
+  </data>
+  <data name="ProjectRenamedStatus" xml:space="preserve">
+    <value>Project renamed to {0}</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="ProjectLoadedStatus" xml:space="preserve">
+    <value>Project loaded: {0}</value>
+  </data>
+  <data name="ProjectNewStatus" xml:space="preserve">
+    <value>New project created.</value>
+  </data>
+  <data name="ProjectSaveError" xml:space="preserve">
+    <value>Error saving project: {0}</value>
+  </data>
+  <data name="ProjectOpenError" xml:space="preserve">
+    <value>Error opening project: {0}</value>
+  </data>
+  <data name="ExportKmz" xml:space="preserve">
+    <value>Export to KMZ</value>
+  </data>
+  <data name="ExportKmzToolTip" xml:space="preserve">
+    <value>Export full map or selected crop area to a KMZ file</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CloseProject" xml:space="preserve">
+    <value>Close Project</value>
+  </data>
+  <data name="CloseMap" xml:space="preserve">
+    <value>Close Map</value>
+  </data>
+  <data name="CloseTrack" xml:space="preserve">
+    <value>Close Track</value>
+  </data>
+  <data name="LoadTracks" xml:space="preserve">
+    <value>Load Tracks</value>
+  </data>
+  <data name="LoadTracksToolTip" xml:space="preserve">
+    <value>Load GPX tracks (*.gpx)</value>
+  </data>
+  <data name="TracksSection" xml:space="preserve">
+    <value>Tracks</value>
+  </data>
+  <data name="MapsSection" xml:space="preserve">
+    <value>Maps</value>
+  </data>
+  <data name="GpxFilterName" xml:space="preserve">
+    <value>GPX files (*.gpx)</value>
+  </data>
+  <data name="OpenTrackDialogTitle" xml:space="preserve">
+    <value>Select GPX track files</value>
+  </data>
+  <data name="TracksLoadedCount" xml:space="preserve">
+    <value>{0} tracks loaded</value>
+  </data>
+  <data name="TrackLoadedStatus" xml:space="preserve">
+    <value>Track loaded: {0}</value>
+  </data>
+  <data name="TracksCountFormat" xml:space="preserve">
+    <value>{0} tracks</value>
+  </data>
+  <data name="ExportOptionsTitle" xml:space="preserve">
+    <value>Export Options</value>
+  </data>
+  <data name="ExportDestinationGroup" xml:space="preserve">
+    <value>Destination</value>
+  </data>
+  <data name="ExportDirectoryLabel" xml:space="preserve">
+    <value>Output directory:</value>
+  </data>
+  <data name="ExportDirectoryWatermark" xml:space="preserve">
+    <value>Select output folder...</value>
+  </data>
+  <data name="ExportKmzNameLabel" xml:space="preserve">
+    <value>KMZ map name:</value>
+  </data>
+  <data name="ExportKmzNameWatermark" xml:space="preserve">
+    <value>map_name.kmz</value>
+  </data>
+  <data name="ExportSelectFolderDialogTitle" xml:space="preserve">
+    <value>Select Output Directory</value>
+  </data>
+  <data name="ExportOutputSettingsGroup" xml:space="preserve">
+    <value>Output Settings</value>
+  </data>
+  <data name="ExportTileSizeLabel" xml:space="preserve">
+    <value>Tile size (px):</value>
+  </data>
+  <data name="ExportMaxTilesLabel" xml:space="preserve">
+    <value>Max tiles:</value>
+  </data>
+  <data name="ExportScaleFactorLabel" xml:space="preserve">
+    <value>Scale factor:</value>
+  </data>
+  <data name="ExportJpegQualityLabel" xml:space="preserve">
+    <value>JPEG quality (%):</value>
+  </data>
+  <data name="ExportBrightnessGroup" xml:space="preserve">
+    <value>Brightness Settings</value>
+  </data>
+  <data name="ExportBrightnessDescription" xml:space="preserve">
+    <value>Brightens tiles for direct sunlight visibility on GPS.</value>
+  </data>
+  <data name="ExportBrightnessEnable" xml:space="preserve">
+    <value>Brighten images before generating KMZ</value>
+  </data>
+  <data name="ExportGammaLabel" xml:space="preserve">
+    <value>Gamma (0.1-10):</value>
+  </data>
+  <data name="ExportBrightnessPercentLabel" xml:space="preserve">
+    <value>Brightness % (0-100):</value>
+  </data>
+  <data name="ExportContrastLabel" xml:space="preserve">
+    <value>Contrast (0.1-10):</value>
+  </data>
+  <data name="ExportBrightnessExplanation" xml:space="preserve">
+    <value>Gamma above 1 brightens midtones; brightness lifts shadows and contrast widens the gap between lights and darks.</value>
+  </data>
+  <data name="ExportAreaGroup" xml:space="preserve">
+    <value>Reduce map to track contour</value>
+  </data>
+  <data name="ExportTrackMarginLabel" xml:space="preserve">
+    <value>Minimum distance to track (meters):</value>
+  </data>
+  <data name="OptionNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="ExportCancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ExportCancellingStatus" xml:space="preserve">
+    <value>Cancelling...</value>
+  </data>
+  <data name="ExportCancelledStatus" xml:space="preserve">
+    <value>Export cancelled.</value>
+  </data>
+  <data name="ProgressStepFormat" xml:space="preserve">
+    <value>Step {0} of {1}</value>
+  </data>
+  <data name="ProgressStepPercentageFormat" xml:space="preserve">
+    <value>Step progress: {0}</value>
+  </data>
+  <data name="StepCroppingTrack" xml:space="preserve">
+    <value>Cropping images to track contour...</value>
+  </data>
+  <data name="ExportErrorDirectoryNotFound" xml:space="preserve">
+    <value>The specified output directory does not exist.</value>
+  </data>
+  <data name="ExportErrorInvalidFileName" xml:space="preserve">
+    <value>The KMZ file name is invalid.</value>
+  </data>
+  <data name="OpenContainingFolder" xml:space="preserve">
+    <value>Open containing folder</value>
+  </data>
+  <data name="CloseSelectedMaps" xml:space="preserve">
+    <value>Close selected maps</value>
+  </data>
+  <data name="MenuOptions" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="MenuFile" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="MenuLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LanguageSpanish" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+  <data name="LanguageEnglish" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="MenuDirectories" xml:space="preserve">
+    <value>Directories</value>
+  </data>
+  <data name="TempDirectoriesTitle" xml:space="preserve">
+    <value>Temporary Directories</value>
+  </data>
+  <data name="TempDirectoriesDescription" xml:space="preserve">
+    <value>Configure the temporary directory used for tiles and intermediate processing files.</value>
+  </data>
+  <data name="CurrentTempDirectoryLabel" xml:space="preserve">
+    <value>Current temporary directory:</value>
+  </data>
+  <data name="CustomTempDirectoryLabel" xml:space="preserve">
+    <value>Custom temporary directory:</value>
+  </data>
+  <data name="CustomTempDirectoryWatermark" xml:space="preserve">
+    <value>Custom temp directory path...</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Browse...</value>
+  </data>
+  <data name="ButtonResetDefault" xml:space="preserve">
+    <value>Reset to Default</value>
+  </data>
+  <data name="ButtonClearTemp" xml:space="preserve">
+    <value>Empty Temporary Directory</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TempDirectorySizeFormat" xml:space="preserve">
+    <value>Used disk space: {0:F2} MB</value>
+  </data>
+  <data name="TempDirectoryClearedSuccess" xml:space="preserve">
+    <value>Temporary directory emptied ({0} files, {1} folders deleted, {2:F2} MB freed).</value>
+  </data>
+  <data name="TempDirectoryUpdatedStatus" xml:space="preserve">
+    <value>Temporary directory updated: {0}</value>
+  </data>
+  <data name="SelectTempFolderDialogTitle" xml:space="preserve">
+    <value>Select temporary files folder</value>
+  </data>
+  <data name="SearchTrackOrMapWatermark" xml:space="preserve">
+    <value>Search track or map...</value>
+  </data>
+  <data name="SavePromptTitle" xml:space="preserve">
+    <value>Save changes?</value>
+  </data>
+  <data name="SavePromptMessage" xml:space="preserve">
+    <value>Do you want to save changes to project '{0}'?</value>
+  </data>
+  <data name="ButtonYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="ButtonNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="ExportModeTrackContour" xml:space="preserve">
+    <value>Reduce map to track contour</value>
+  </data>
+  <data name="ExportModeSelectedTiles" xml:space="preserve">
+    <value>Selected tiles</value>
+  </data>
+  <data name="ExportModeSelectedMaps" xml:space="preserve">
+    <value>Selected maps</value>
+  </data>
+  <data name="ExportSelectedTilesCounterFormat" xml:space="preserve">
+    <value>{0}/{1}</value>
+  </data>
+  <data name="ExportNoTilesSelectedError" xml:space="preserve">
+    <value>You must select at least one tile to export.</value>
+  </data>
+  <data name="ExportNoTrackSelectedError" xml:space="preserve">
+    <value>You must select a track to export.</value>
+  </data>
+  <data name="ExportClearSelectedTiles" xml:space="preserve">
+    <value>Clear tiles</value>
+  </data>
+  <data name="ExportOptimizeSelectedTiles" xml:space="preserve">
+    <value>Optimize tiles</value>
+  </data>
+  <data name="ExportLockTileSize" xml:space="preserve">
+    <value>Lock tile size</value>
+  </data>
+  <data name="ExportSelectTrackTiles" xml:space="preserve">
+    <value>Select track tiles</value>
+  </data>
+  <data name="ExportSelectTrackTilesButton" xml:space="preserve">
+    <value>Select tiles</value>
+  </data>
+</root>

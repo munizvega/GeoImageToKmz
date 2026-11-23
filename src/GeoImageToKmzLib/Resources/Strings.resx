@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="ErrorGpxNotFound" xml:space="preserve">
+    <value>El archivo GPX especificado no existe.</value>
+  </data>
+  <data name="ErrorGpxWithoutPoints" xml:space="preserve">
+    <value>El archivo GPX no contiene ningún punto.</value>
+  </data>
+  <data name="ErrorImagesFolderNotFound" xml:space="preserve">
+    <value>El directorio de imágenes no existe: {0}</value>
+  </data>
+  <data name="ErrorNoIntersectingTiles" xml:space="preserve">
+    <value>No se encontraron TIFF que intersecten el track GPX.</value>
+  </data>
+  <data name="ErrorTooManyTiles" xml:space="preserve">
+    <value>Se han generado {0} teselas, superando el límite de {1}.</value>
+  </data>
+  <data name="ErrorInvalidGpxPath" xml:space="preserve">
+    <value>Ruta de archivo GPX no válida.</value>
+  </data>
+  <data name="ErrorInvalidImagesPath" xml:space="preserve">
+    <value>Ruta del directorio de imágenes no válida.</value>
+  </data>
+  <data name="ErrorInvalidOutputPath" xml:space="preserve">
+    <value>Ruta de salida no válida.</value>
+  </data>
+  <data name="ErrorInvalidWorkspacePath" xml:space="preserve">
+    <value>Ruta de directorio de trabajo temporal no válida.</value>
+  </data>
+  <data name="StepSearchingImages" xml:space="preserve">
+    <value>Buscando imágenes que intersectan el GPX...</value>
+  </data>
+  <data name="StepCroppingImages" xml:space="preserve">
+    <value>Recortando {0} imagen(es)...</value>
+  </data>
+  <data name="StepReprojecting" xml:space="preserve">
+    <value>Reproyectando imagen...</value>
+  </data>
+  <data name="StepMerging" xml:space="preserve">
+    <value>Fusionando imágenes...</value>
+  </data>
+  <data name="StepResizing" xml:space="preserve">
+    <value>Redimensionando imagen...</value>
+  </data>
+  <data name="StepBrightening" xml:space="preserve">
+    <value>Ajustando brillo y contraste...</value>
+  </data>
+  <data name="StepSplitting" xml:space="preserve">
+    <value>Dividiendo en teselas...</value>
+  </data>
+  <data name="StepExportingJpeg" xml:space="preserve">
+    <value>Exportando teselas a JPEG...</value>
+  </data>
+  <data name="StepBuildingKmz" xml:space="preserve">
+    <value>Generando archivo KMZ...</value>
+  </data>
+  <data name="StepCompleted" xml:space="preserve">
+    <value>Conversión completada.</value>
+  </data>
+  <data name="ConsoleUsage" xml:space="preserve">
+    <value>Uso: TifToKmz --gpx &lt;ruta&gt; --imagesPath &lt;ruta&gt; --outputPath &lt;ruta&gt; [--config &lt;ruta&gt;]</value>
+  </data>
+  <data name="ConsoleHelpOptions" xml:space="preserve">
+    <value>Opciones:
+  --gpx &lt;ruta&gt;         Ruta al archivo GPX del track.
+  --imagesPath &lt;ruta&gt;  Ruta al directorio de imágenes TIFF.
+  --outputPath &lt;ruta&gt;  Ruta al archivo KMZ de salida.
+  --config &lt;ruta&gt;      Ruta opcional al archivo de configuración appsettings.json.</value>
+  </data>
+  <data name="ConsoleHelpLanguageComment" xml:space="preserve">
+    <value>El idioma se puede configurar en appsettings.json mediante la propiedad 'Language' (por ejemplo, 'es', 'en', o vacío/'system' para el idioma predeterminado del sistema).</value>
+  </data>
+  <data name="ConsoleStartingProcessing" xml:space="preserve">
+    <value>Iniciando procesamiento...</value>
+  </data>
+  <data name="ConsoleGpxPath" xml:space="preserve">
+    <value>Ruta GPX: {0}</value>
+  </data>
+  <data name="ConsoleImagesPath" xml:space="preserve">
+    <value>Ruta de imágenes: {0}</value>
+  </data>
+  <data name="ConsoleOutputPath" xml:space="preserve">
+    <value>Ruta de salida: {0}</value>
+  </data>
+  <data name="ConsoleProgressFormat" xml:space="preserve">
+    <value>[Progreso] {0}</value>
+  </data>
+  <data name="ConsoleDetailedProgressFormat" xml:space="preserve">
+    <value>[Progreso] {0:F0}%</value>
+  </data>
+  <data name="ConsoleDone" xml:space="preserve">
+    <value>Completado.</value>
+  </data>
+  <data name="ConsoleErrorDuringProcessing" xml:space="preserve">
+    <value>Error durante el procesamiento: {0}</value>
+  </data>
+  <data name="ErrorInvalidPathCharacters" xml:space="preserve">
+    <value>La ruta proporcionada para {0} contiene caracteres no válidos: {1}</value>
+  </data>
+</root>
