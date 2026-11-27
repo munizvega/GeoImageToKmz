@@ -133,7 +133,7 @@ public sealed class MapTreeItemViewModel : ViewModelBase
 
             if (IsProject)
             {
-                return $"{TotalMapsCount} mapas, {TotalTracksCount} tracks";
+                return string.Format(CultureInfo.CurrentCulture, Strings.MapsTracksCountFormat, TotalMapsCount, TotalTracksCount);
             }
 
             return string.Empty;

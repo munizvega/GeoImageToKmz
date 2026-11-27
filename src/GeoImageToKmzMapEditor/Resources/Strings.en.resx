@@ -78,10 +78,10 @@
     <value>Fit full map</value>
   </data>
   <data name="OpenRasterDialogTitle" xml:space="preserve">
-    <value>Select GeoTIFF raster files</value>
+    <value>Select compatible raster files (including GeoTIFF and JP2)</value>
   </data>
   <data name="GeoTiffFilterName" xml:space="preserve">
-    <value>GeoTIFF files (*.tif, *.tiff)</value>
+    <value>Compatible raster files (*.tif, *.tiff, *.jp2, and other GDAL formats)</value>
   </data>
   <data name="AllFilesFilterName" xml:space="preserve">
     <value>All files (*.*)</value>
@@ -90,7 +90,7 @@
     <value>No maps loaded</value>
   </data>
   <data name="NoMapsLoadedDescription" xml:space="preserve">
-    <value>Drag GeoTIFF files here or use the 'Load maps' button on the left panel.</value>
+    <value>Drag raster files supported by GDAL here or use the 'Load maps' button on the left panel.</value>
   </data>
   <data name="StatusReady" xml:space="preserve">
     <value>Ready</value>
@@ -380,6 +380,9 @@
   <data name="ExportKmzNameWatermark" xml:space="preserve">
     <value>map_name.kmz</value>
   </data>
+  <data name="DefaultKmzName" xml:space="preserve">
+    <value>map.kmz</value>
+  </data>
   <data name="ExportSelectFolderDialogTitle" xml:space="preserve">
     <value>Select Output Directory</value>
   </data>
@@ -476,6 +479,15 @@
   <data name="LanguageEnglish" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="LanguageFrench" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="LanguageGerman" xml:space="preserve">
+    <value>Deutsch</value>
+  </data>
+  <data name="MapsTracksCountFormat" xml:space="preserve">
+    <value>{0} map(s), {1} track(s)</value>
+  </data>
   <data name="MenuDirectories" xml:space="preserve">
     <value>Directories</value>
   </data>
@@ -568,4 +580,20 @@
   </data>
   <data name="MenuHelp" xml:space="preserve"><value>Help</value></data>
   <data name="HelpOpenError" xml:space="preserve"><value>Could not open help: {0}</value></data>
+  <data name="MenuMaps" xml:space="preserve"><value>Maps</value></data>
+  <data name="MapCountrySpain" xml:space="preserve"><value>Spain</value></data>
+  <data name="MapCountryFrance" xml:space="preserve"><value>France</value></data>
+  <data name="MenuAbout" xml:space="preserve"><value>About</value></data>
+  <data name="AboutCreator" xml:space="preserve"><value>Created by Antonio Muñiz Vega using AI.</value></data>
+  <data name="AboutDisclaimer" xml:space="preserve"><value>This application is provided without any warranty. Use of the application is at the user's own risk and responsibility.</value></data>
+  <data name="AboutLicense" xml:space="preserve"><value>Application license</value></data>
+  <data name="AboutLicenseDescription" xml:space="preserve"><value>This application is distributed under the GNU General Public License, version 3 (GPL-3.0).</value></data>
+  <data name="AboutLicenseWebsite" xml:space="preserve"><value>Official GNU GPL v3 text</value></data>
+  <data name="AboutRepository" xml:space="preserve"><value>Application repository</value></data>
+  <data name="AboutRepositoryWebsite" xml:space="preserve"><value>GitHub repository</value></data>
+  <data name="AboutGdal" xml:space="preserve"><value>GDAL library</value></data>
+  <data name="AboutGdalDescription" xml:space="preserve"><value>This application uses GDAL for geospatial data processing.</value></data>
+  <data name="AboutGdalWebsite" xml:space="preserve"><value>Official GDAL website</value></data>
+  <data name="ExternalLinkOpenError" xml:space="preserve"><value>Could not open the link: {0}</value></data>
+  <data name="ButtonClose" xml:space="preserve"><value>Close</value></data>
 </root>

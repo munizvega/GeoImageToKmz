@@ -127,7 +127,7 @@
   --config &lt;path&gt;      Optional path to custom appsettings.json configuration file.</value>
   </data>
   <data name="ConsoleHelpLanguageComment" xml:space="preserve">
-    <value>Language can be configured in appsettings.json using the 'Language' property (e.g. 'es', 'en', or empty/'system' for system default).</value>
+    <value>Language can be configured in appsettings.json using the 'Language' property (e.g. 'es', 'en', 'fr', 'de', or empty/'system' for system default).</value>
   </data>
   <data name="ConsoleStartingProcessing" xml:space="preserve">
     <value>Starting processing...</value>

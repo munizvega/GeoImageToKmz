@@ -87,7 +87,7 @@ public sealed class KmzExportWindow : Window
             {
                 cleanName = cleanName.Replace(c, '_');
             }
-            defaultKmzName = !string.IsNullOrWhiteSpace(cleanName) ? $"{cleanName}.kmz" : "mapa.kmz";
+            defaultKmzName = !string.IsNullOrWhiteSpace(cleanName) ? $"{cleanName}.kmz" : Strings.DefaultKmzName;
         }
         if (!defaultKmzName.EndsWith(".kmz", StringComparison.OrdinalIgnoreCase))
         {
@@ -458,7 +458,7 @@ public sealed class KmzExportWindow : Window
         }
         if (string.IsNullOrWhiteSpace(suggestedName))
         {
-            suggestedName = "mapa.kmz";
+            suggestedName = Strings.DefaultKmzName;
         }
         var file = await StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {

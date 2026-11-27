@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guide de GeoImageToKmz Map Editor</title>
+  <style>
+    body { font: 1rem/1.6 system-ui, sans-serif; color: #202b38; max-width: 56rem; margin: auto; padding: 1rem; }
+    h1, h2, h3 { line-height: 1.25; color: #16446c; }
+    nav, .aviso { background: #edf4fa; padding: 1rem; border-radius: .4rem; }
+    code { background: #edf0f2; padding: .1em .25em; }
+    a { color: #005a9c; }
+    li { margin: .3rem 0; }
+    section { scroll-margin-top: 1rem; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Guide de GeoImageToKmz Map Editor</h1>
+  <p>Préparez des cartes, sélectionnez une zone et créez un fichier KMZ pour votre visionneuse ou votre appareil compatible.</p>
+</header>
+<nav aria-label="Sommaire">
+  <strong>Sommaire</strong>
+  <ul>
+    <li><a href="#inicio">Premiers pas</a></li>
+    <li><a href="#GarminCustomMaps">Garmin Custom Maps</a></li>
+    <li><a href="#interfaz">Interface et navigation</a></li>
+    <li><a href="#proyectos">Projets</a></li>
+    <li><a href="#mapas-tracks">Cartes et tracés</a></li>
+    <li><a href="#exportacion">Exportation KMZ</a></li>
+    <li><a href="#teselas">Sélection des tuiles</a></li>
+    <li><a href="#teselas-pequenas">Procédure avec de petites tuiles</a></li>
+    <li><a href="#teselas-grandes">Procédure avec de grandes tuiles</a></li>
+    <li><a href="#track">Sélection à partir d'un tracé</a></li>
+    <li><a href="#ajustes-salida">Paramètres de sortie et luminosité</a></li>
+    <li><a href="#directorios">Langue et dossiers temporaires</a></li>
+    <li><a href="#fuentes-mapas-acerca">Sources cartographiques et à propos</a></li>
+    <li><a href="#problemas">Dépannage</a></li>
+  </ul>
+</nav>
+<main>
+  <section id="inicio">
+    <h2>Premiers pas</h2>
+    <ol>
+      <li>Ouvrez l'éditeur et chargez un ou plusieurs fichiers raster géoréférencés pris en charge par GDAL avec <strong>Charger des cartes</strong> ou en les faisant glisser dans la fenêtre.</li>
+      <li>Pour utiliser un itinéraire, chargez un fichier GPX avec <strong>Charger des tracés</strong>. Cela vous aidera à créer une carte autour du tracé.</li>
+      <li>Vérifiez les couches visibles, sélectionnez la zone et les paramètres d'exportation, puis choisissez la destination du KMZ.</li>
+      <li>Cliquez sur <strong>Exporter au format KMZ</strong>, attendez la confirmation et vérifiez le résultat dans la visionneuse ou sur l'appareil cible.</li>
+    </ol>
+    <p>Sous Windows, lancez l'application à partir de son fichier <code>.exe</code>. Sous Linux, exécutez <code>./GeoImageToKmzMapEditor</code>.</p>
+  </section>
+  <section id="GarminCustomMaps">
+    <h2>Garmin Custom Maps</h2>
+    <p>Cette application convient parfaitement à la création de Garmin Custom Maps au format KMZ. Leur création manuelle peut être fastidieuse, car chaque appareil impose ses propres limites.</p>
+    <p>Les appareils étant différents, vérifiez les limites du vôtre et configurez les options en conséquence.</p>
+    <p>Garmin BaseCamp peut vous aider : si vous essayez de copier une carte contenant trop de tuiles, le logiciel signale une erreur et indique que la limite est dépassée.</p>
+    <p>L'application a été testée avec un Garmin Edge 850, dont la limite est de 250 tuiles. Les informations de compatibilité et les limites ne sont pas claires pour tous les appareils ; vous devrez peut-être tester les limites du vôtre.</p>
+    <p>Le nombre et la taille des tuiles étant limités, la qualité et la résolution de la carte dépendent du nombre de tuiles. Un plus grand nombre de tuiles peut couvrir une zone plus vaste ou fournir davantage de détails : 250 tuiles sur un kilomètre carré offrent plus de détails que 100 tuiles sur la même zone. Essayez d'utiliser autant de tuiles que votre appareil le permet. Vous pouvez sélectionner de très petites tuiles le long du parcours, puis dézoomer et ajouter autour des tuiles plus grandes et moins détaillées pour couvrir les environs ou d'éventuels itinéraires de repli.</p>
+  </section>
+  <section id="interfaz">
+    <span id="mapa"></span>
+    <h2>Interface et navigation</h2>
+    <p>La fenêtre regroupe l'arborescence des projets, cartes et tracés, la visionneuse centrale et le panneau <strong>Options d'exportation</strong>. La barre d'état affiche notamment les coordonnées, le chargement et les erreurs.</p>
+    <p>Faites glisser la carte pour la déplacer ; utilisez la molette ou les boutons <strong>+</strong> et <strong>−</strong> pour zoomer, et <strong>Afficher la carte entière</strong> pour revenir à l'étendue complète. Les coordonnées affichées dépendent de la projection de la carte.</p>
+  </section>
+  <section id="proyectos">
+    <h2>Projets</h2>
+    <p>Dans <strong>Fichier</strong>, vous pouvez créer, ouvrir, enregistrer ou enregistrer sous un projet. Les projets utilisent l'extension <code>.gtk</code>. L'arborescence permet de renommer ou de fermer des éléments. Si des modifications ne sont pas enregistrées à la fermeture, l'éditeur vous demande si vous souhaitez les enregistrer.</p>
+    <p>Le projet conserve les références aux fichiers et aux options de travail, y compris les tuiles sélectionnées. Conservez les fichiers raster et GPX d'origine et veillez à ce que leurs chemins restent accessibles : enregistrer un projet n'équivaut pas à exporter un KMZ.</p>
+  </section>
+  <section id="mapas-tracks">
+    <h2>Cartes et tracés</h2>
+    <p>Utilisez <strong>Charger des cartes</strong> pour sélectionner des fichiers raster compatibles, tels que <code>.tif</code>, <code>.tiff</code> ou <code>.jp2</code>, et <strong>Charger des tracés</strong> pour sélectionner des fichiers <code>.gpx</code>. L'arborescence permet de rechercher des éléments, de modifier leur visibilité et de les fermer ; son menu contextuel propose notamment d'ouvrir le dossier contenant le fichier.</p>
+    <p>Les couches raster visibles sont incluses dans l'exportation. Masquez celles que vous ne souhaitez pas inclure et vérifiez que les cartes et le tracé couvrent la même zone. Le GPX sert à afficher l'itinéraire et à sélectionner une zone ; ne partez pas du principe que le tracé sera exporté comme une ligne distincte dans le KMZ.</p>
+  </section>
+  <section id="exportacion">
+    <span id="configuracion-exportacion"></span>
+    <h2>Exportation KMZ</h2>
+    <p>Dans <strong>Zone à exporter</strong>, choisissez l'une des options suivantes :</p>
+    <ul>
+      <li><strong>Cartes sélectionnées</strong> : traite toutes les couches raster visibles.</li>
+      <li><strong>Tuiles sélectionnées</strong> : traite les zones rectangulaires choisies dans la visionneuse.</li>
+      <li><strong>Réduire la carte au contour du tracé</strong> : utilise le rectangle englobant le tracé, auquel s'ajoute la marge indiquée ; il ne s'agit pas d'un masque suivant exactement l'itinéraire.</li>
+    </ul>
+    <p>Dans le panneau d'exportation, indiquez le dossier et le nom du fichier ; l'extension <code>.kmz</code> est ajoutée si nécessaire. Cliquez sur <strong>Exporter au format KMZ</strong> et suivez la progression globale et celle de chaque étape. Vous pouvez demander <strong>Annuler</strong> pendant le traitement ; attendez le message d'annulation avant de continuer.</p>
+  </section>
+  <section id="teselas">
+    <h2>Sélection des tuiles</h2>
+    <p>Sélectionnez <strong>Tuiles sélectionnées</strong>. En mode navigation, cliquez sur une cellule de la carte pour l'ajouter ; cliquez dans une tuile sélectionnée pour la retirer. Faites glisser la carte pour la déplacer. Le compteur indique le nombre sélectionné et le maximum ; une fois le maximum atteint, vous ne pouvez plus ajouter de tuiles manuellement.</p>
+    <p>La grille représente des étendues géographiques : tant que la taille n'est pas verrouillée, le zoom détermine les dimensions au sol de chaque cellule. <strong>Verrouiller la taille des tuiles</strong> réutilise les dimensions géographiques de la première sélection pour les suivantes, même si vous changez de zoom. Désactivez cette option pour choisir de nouvelles dimensions à un autre niveau de zoom ; les sélections existantes sont conservées.</p>
+    <p><strong>Effacer les tuiles</strong> supprime toute la sélection. <strong>Optimiser les tuiles</strong> subdivise uniformément les zones sélectionnées en utilisant le maximum disponible ; cette option ne fusionne pas les tuiles et n'augmente pas la limite. Si le nombre de tuiles restantes est insuffisant, la sélection peut rester inchangée.</p>
+    <p>La taille géographique de ces sélections diffère de la <strong>Taille des tuiles (px)</strong>, qui définit les pixels de sortie.</p>
+  </section>
+  <section id="teselas-pequenas">
+    <h2>Procédure avec de petites tuiles</h2>
+    <ol>
+      <li>Sélectionnez le mode tuiles, effacez la sélection si nécessaire et zoomez jusqu'à ce que les cellules couvrent de petites zones.</li>
+      <li>Sélectionnez les cellules voulues. Pour conserver leur taille géographique pendant la navigation, activez <strong>Verrouiller la taille des tuiles</strong> après avoir sélectionné la première tuile.</li>
+      <li>Vérifiez la couverture et le compteur ; augmentez le maximum si nécessaire ou réduisez la zone. Configurez la destination et la sortie, puis exportez.</li>
+    </ol>
+    <p>Les petites zones permettent une sélection plus précise, mais peuvent nécessiter davantage de tuiles. Vérifiez les limites de l'appareil cible.</p>
+    <p>À taille de sortie en pixels identique, une tuile couvrant une zone plus petite peut préserver davantage de détails, si la résolution de l'image source est suffisante. Par exemple, sélectionnez d'abord de petites tuiles le long du tracé ; désactivez ensuite le verrouillage, dézoomez et ajoutez des tuiles plus grandes et moins détaillées autour pour étendre la couverture.</p>
+  </section>
+  <section id="teselas-grandes">
+    <h2>Procédure avec de grandes tuiles</h2>
+    <ol>
+      <li>Effacez la sélection et dézoomez avant de sélectionner afin que chaque cellule couvre une zone plus vaste. Verrouillez la taille après la première sélection si vous souhaitez la conserver pendant les changements de zoom.</li>
+      <li>Sélectionnez les zones nécessaires et vérifiez qu'elles couvrent l'itinéraire ou le territoire prévu. Une grande cellule peut inclure une zone inutile.</li>
+      <li>Pour subdiviser ces zones sans modifier leur couverture, cliquez sur <strong>Optimiser les tuiles</strong> et vérifiez le compteur. Configurez ensuite la sortie et exportez.</li>
+    </ol>
+    <p>Pour sélectionner une autre taille, effacez les tuiles ou désactivez le verrouillage et changez de zoom. L'optimisation crée davantage de petites sélections ; elle ne garantit pas un nombre précis.</p>
+  </section>
+  <section id="track">
+    <h2>Sélection à partir d'un tracé</h2>
+    <p>Chargez un GPX et choisissez <strong>Réduire la carte au contour du tracé</strong>, le tracé et la <strong>Distance minimale au tracé</strong> en mètres. L'exportation utilise le rectangle englobant le tracé, élargi de cette marge ; elle peut donc inclure des zones éloignées de l'itinéraire.</p>
+    <p>Vous pouvez aussi, dans <strong>Tuiles sélectionnées</strong>, activer <strong>Sélectionner les tuiles du tracé</strong>, choisir le tracé et la marge, puis cliquer sur <strong>Sélectionner les tuiles</strong>. Les cellules proches du parcours sont sélectionnées. Cette action remplace la sélection précédente ; vérifiez la carte et le compteur. Lorsque le maximum est atteint, aucune tuile supplémentaire n'est ajoutée et une partie du tracé peut rester non couverte.</p>
+    <p>La taille de la grille dépend du zoom ou, si elle est verrouillée et qu'une sélection existe déjà, de la première tuile sélectionnée. Modifiez le zoom, la marge et le maximum, puis relancez la sélection si vous souhaitez une autre couverture.</p>
+  </section>
+  <section id="ajustes-salida">
+    <h2>Paramètres de sortie et luminosité</h2>
+    <ul>
+      <li><strong>Taille des tuiles (px)</strong> : de 256 à 4096 ; valeur par défaut : 1024. Pour Garmin Custom Maps, 1024 × 1024 pixels est une référence courante ; des images plus grandes peuvent perdre en résolution ou ne pas être compatibles avec certains appareils.</li>
+      <li><strong>Nombre maximal de tuiles</strong> : de 1 à 1000 ; valeur par défaut : 250. Cette limite s'applique à la sélection et à la génération du KMZ. Les limites Garmin Custom Maps dépendent du modèle : certains appareils acceptent 100 tuiles, d'autres 500, en comptant aussi les autres cartes installées. Consultez les caractéristiques de votre appareil ; 250 ne garantit pas la compatibilité.</li>
+      <li><strong>Qualité JPEG (%)</strong> : de 1 à 100 dans le panneau principal ; les valeurs élevées préservent généralement davantage de détails au prix d'un fichier plus volumineux.</li>
+      <li><strong>Éclaircir les images avant de générer le KMZ</strong> : active les réglages gamma, luminosité et contraste. Le gamma et le contraste vont de 0,1 à 10 ; la luminosité, de 0 à 100 %. Un gamma supérieur à 1 éclaircit les tons moyens ; la luminosité éclaircit les zones sombres et le contraste accentue l'écart entre les zones claires et foncées.</li>
+    </ul>
+    <p>Le traitement des images peut être lent et nécessiter beaucoup de mémoire et d'espace disque, même si le résultat final ne fait que quelques mégaoctets. Essayez d'abord une petite zone et vérifiez la lisibilité et la taille avant d'en traiter une grande. Les paramètres enregistrés dans le projet peuvent modifier les valeurs initiales.</p>
+  </section>
+  <section id="directorios">
+    <span id="directorios-temporales"></span>
+    <h2>Langue et dossiers temporaires</h2>
+    <p>Dans <strong>Options → Langue</strong>, sélectionnez Español, English, Français ou Deutsch. Dans <strong>Options → Dossiers</strong>, vérifiez le chemin temporaire utilisé et l'espace occupé. Saisissez ou recherchez un dossier personnalisé, puis cliquez sur <strong>Enregistrer</strong> ; <strong>Rétablir les valeurs par défaut</strong> rétablit le dossier temporaire de l'application.</p>
+    <p class="aviso"><strong>Attention :</strong> <strong>Vider le dossier temporaire</strong> supprime les fichiers et dossiers du dossier temporaire actuel. Utilisez un dossier dédié, qui ne contient pas de données personnelles, et ne le videz pas pendant un traitement.</p>
+  </section>
+  <section id="fuentes-mapas-acerca">
+    <h2>Sources cartographiques et à propos</h2>
+    <p>Dans <strong>Aide → Cartes</strong>, choisissez <strong>Espagne</strong> pour ouvrir le <a href="https://centrodedescargas.cnig.es/CentroDescargas/catalogo">catalogue de téléchargement du Centre national d'information géographique espagnol</a>, ou <strong>France</strong> pour ouvrir le <a href="https://cartes.gouv.fr/rechercher-une-donnee/dataset/IGNF_BD-ORTHO">jeu de données BD ORTHO de l'IGN français</a>.</p>
+    <p>L'application a été testée avec des fichiers <code>.tif</code> du PNOA et des fichiers <code>.jp2</code> de l'IGNF.</p>
+    <p><strong>Aide → À propos</strong> affiche la mention « Créée par Antonio Muñiz Vega à l'aide de l'IA » et précise que l'application est fournie sans garantie et que son utilisation relève de la responsabilité et des risques de l'utilisateur.</p>
+    <p>L'application est distribuée sous la GNU General Public License, version 3 (GPL-3.0). Dans « Aide → À propos », vous pouvez ouvrir le <a href="https://www.gnu.org/licenses/gpl-3.0.html">texte officiel de la licence</a> et le <a href="https://github.com/munizvega/GeoImageToKmz">dépôt du projet sur GitHub</a>.</p>
+    <p>L'application utilise la bibliothèque géospatiale GDAL. Consultez son <a href="https://gdal.org">site officiel</a>.</p>
+  </section>
+  <section id="problemas">
+    <h2>Dépannage</h2>
+    <ul>
+      <li><strong>Aucune couche visible :</strong> chargez un fichier raster pris en charge et activez sa visibilité.</li>
+      <li><strong>Aucune tuile ou aucun tracé sélectionné :</strong> sélectionnez au moins une cellule, ou chargez et choisissez un GPX selon le mode utilisé.</li>
+      <li><strong>Une partie de l'itinéraire manque :</strong> vérifiez la couverture dans la visionneuse et le compteur ; modifiez le zoom, la marge ou le maximum, puis recommencez la sélection.</li>
+      <li><strong>Impossible de charger ou d'exporter :</strong> vérifiez l'existence des fichiers, leur géoréférencement, les autorisations, le chemin de sortie, l'espace temporaire disponible et le message d'erreur. Utilisez un dossier temporaire disposant de suffisamment d'espace.</li>
+      <li><strong>Le KMZ ne s'affiche pas comme prévu :</strong> vérifiez les couches visibles, la zone et le système de référence ; testez la taille, la qualité et la luminosité dans la visionneuse ou sur l'appareil cible.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

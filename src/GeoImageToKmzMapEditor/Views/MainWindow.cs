@@ -85,7 +85,7 @@ public sealed class MainWindow : Window
 
     private void UpdateProjectBadge()
     {
-        _projectBadgeText.Text = $"📁 {_viewModel.ProjectTitleText} ({_viewModel.TotalLayersCount} mapas, {_viewModel.TotalTracksCount} tracks)";
+        _projectBadgeText.Text = $"📁 {_viewModel.ProjectTitleText} ({string.Format(CultureInfo.CurrentCulture, Strings.MapsTracksCountFormat, _viewModel.TotalLayersCount, _viewModel.TotalTracksCount)})";
         Title = $"{Strings.AppTitle} - {_viewModel.ProjectTitleText}";
         if (_saveProjectBtn != null)
         {
@@ -370,6 +370,8 @@ public sealed class MainWindow : Window
         string currentLang = _viewModel.LanguageService.CurrentLanguage;
         bool isSpanish = string.Equals(currentLang, "es", StringComparison.OrdinalIgnoreCase);
         bool isEnglish = string.Equals(currentLang, "en", StringComparison.OrdinalIgnoreCase);
+        bool isFrench = string.Equals(currentLang, "fr", StringComparison.OrdinalIgnoreCase);
+        bool isGerman = string.Equals(currentLang, "de", StringComparison.OrdinalIgnoreCase);
 
         MenuItem spanishItem = new()
         {
@@ -391,8 +393,30 @@ public sealed class MainWindow : Window
             RebuildWindowUi();
         };
 
+        MenuItem frenchItem = new()
+        {
+            Header = (isFrench ? "✓ " : "    ") + Strings.LanguageFrench
+        };
+        frenchItem.Click += (_, _) =>
+        {
+            _viewModel.LanguageService.SetLanguage("fr");
+            RebuildWindowUi();
+        };
+
+        MenuItem germanItem = new()
+        {
+            Header = (isGerman ? "✓ " : "    ") + Strings.LanguageGerman
+        };
+        germanItem.Click += (_, _) =>
+        {
+            _viewModel.LanguageService.SetLanguage("de");
+            RebuildWindowUi();
+        };
+
         languageMenu.Items.Add(spanishItem);
         languageMenu.Items.Add(englishItem);
+        languageMenu.Items.Add(frenchItem);
+        languageMenu.Items.Add(germanItem);
         optionsMenu.Items.Add(languageMenu);
 
         // Directories Menu Item
@@ -415,6 +439,20 @@ public sealed class MainWindow : Window
         MenuItem helpItem = new() { Header = Strings.GetString("MenuHelp"), InputGesture = new KeyGesture(Key.F1) };
         helpItem.Click += (_, _) => HelpService.Open(this, "inicio");
         helpMenu.Items.Add(helpItem);
+
+        MenuItem mapsMenu = new() { Header = Strings.MenuMaps };
+        MenuItem spainMapsItem = new() { Header = Strings.MapCountrySpain };
+        spainMapsItem.Click += (_, _) => HelpService.OpenExternal(this, "https://centrodedescargas.cnig.es/CentroDescargas/catalogo");
+        mapsMenu.Items.Add(spainMapsItem);
+        MenuItem franceMapsItem = new() { Header = Strings.MapCountryFrance };
+        franceMapsItem.Click += (_, _) => HelpService.OpenExternal(this, "https://cartes.gouv.fr/rechercher-une-donnee/dataset/IGNF_BD-ORTHO");
+        mapsMenu.Items.Add(franceMapsItem);
+        helpMenu.Items.Add(mapsMenu);
+
+        helpMenu.Items.Add(new Separator());
+        MenuItem aboutItem = new() { Header = Strings.MenuAbout };
+        aboutItem.Click += async (_, _) => await new AboutWindow().ShowDialog(this);
+        helpMenu.Items.Add(aboutItem);
         menu.Items.Add(helpMenu);
         return menu;
     }

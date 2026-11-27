@@ -34,6 +34,7 @@
     <li><a href="#track">Selección mediante track</a></li>
     <li><a href="#ajustes-salida">Ajustes de salida y brillo</a></li>
     <li><a href="#directorios">Idioma y directorios temporales</a></li>
+    <li><a href="#fuentes-mapas-acerca">Fuentes de mapas y acerca de</a></li>
     <li><a href="#problemas">Resolución de problemas</a></li>
   </ul>
 </nav>
@@ -41,7 +42,7 @@
   <section id="inicio">
     <h2>Primeros pasos</h2>
     <ol>
-      <li>Abra el editor y cargue uno o varios GeoTIFF georreferenciados con <strong>Cargar mapas</strong> o arrastrándolos a la ventana.</li>
+      <li>Abra el editor y cargue uno o varios rásteres georreferenciados compatibles con GDAL con <strong>Cargar mapas</strong> o arrastrándolos a la ventana.</li>
       <li>Si desea utilizar una ruta, cargue un archivo GPX con <strong>Cargar tracks</strong>. Esto le ayudará a crear un mapa alrededor del track.</li>
       <li>Compruebe las capas visibles, seleccione el área y los ajustes de exportación, y elija el destino del KMZ.</li>
       <li>Pulse <strong>Exportar a KMZ</strong>, espere la confirmación y compruebe el resultado en el visor o dispositivo de destino.</li>
@@ -67,11 +68,11 @@
   <section id="proyectos">
     <h2>Proyectos</h2>
     <p>En <strong>Archivo</strong> puede crear, abrir, guardar o guardar como un proyecto. Los proyectos utilizan la extensión <code>.gtk</code>. El árbol permite cambiar el nombre o cerrar elementos. Al cerrar con cambios pendientes, el editor pregunta si desea guardarlos.</p>
-    <p>El proyecto conserva referencias a los archivos y opciones de trabajo, incluidas las teselas seleccionadas. Guarde también los GeoTIFF y GPX originales y mantenga sus rutas disponibles: guardar el proyecto no equivale a exportar un KMZ.</p>
+    <p>El proyecto conserva referencias a los archivos y opciones de trabajo, incluidas las teselas seleccionadas. Guarde también los rásteres y GPX originales y mantenga sus rutas disponibles: guardar el proyecto no equivale a exportar un KMZ.</p>
   </section>
   <section id="mapas-tracks">
     <h2>Mapas y tracks</h2>
-    <p>Use <strong>Cargar mapas</strong> para seleccionar archivos <code>.tif</code> o <code>.tiff</code> y <strong>Cargar tracks</strong> para archivos <code>.gpx</code>. El árbol permite buscar, cambiar la visibilidad y cerrar elementos; su menú contextual ofrece acciones como abrir la carpeta contenedora.</p>
+    <p>Use <strong>Cargar mapas</strong> para seleccionar archivos ráster compatibles, como <code>.tif</code>, <code>.tiff</code> o <code>.jp2</code>, y <strong>Cargar tracks</strong> para archivos <code>.gpx</code>. El árbol permite buscar, cambiar la visibilidad y cerrar elementos; su menú contextual ofrece acciones como abrir la carpeta contenedora.</p>
     <p>Las capas ráster visibles son las entradas de la exportación. Oculte las que no desee incluir y compruebe que los mapas y el track cubran la misma zona. El GPX sirve para visualizar y seleccionar el área; no suponga que el track se exporta como una línea independiente en el KMZ.</p>
     <!-- Captura futura: árbol de mapas y tracks. -->
   </section>
@@ -134,14 +135,22 @@
   <section id="directorios">
     <span id="directorios-temporales"></span>
     <h2>Idioma y directorios temporales</h2>
-    <p>En <strong>Opciones → Idioma</strong> seleccione español o inglés. En <strong>Opciones → Directorios</strong> consulte la ruta temporal efectiva y el espacio ocupado. Escriba o examine una carpeta personalizada y pulse <strong>Guardar</strong>; <strong>Restablecer predeterminado</strong> vuelve a la carpeta temporal de la aplicación.</p>
+    <p>En <strong>Opciones → Idioma</strong> seleccione español, inglés, francés o alemán. En <strong>Opciones → Directorios</strong> consulte la ruta temporal efectiva y el espacio ocupado. Escriba o examine una carpeta personalizada y pulse <strong>Guardar</strong>; <strong>Restablecer predeterminado</strong> vuelve a la carpeta temporal de la aplicación.</p>
     <p class="aviso"><strong>Precaución:</strong> <strong>Vaciar directorio temporal</strong> elimina archivos y carpetas del directorio temporal actual. Utilice una carpeta dedicada, no una que contenga datos personales, y no la vacíe durante un procesamiento.</p>
     <!-- Captura futura: configuración de directorios temporales. -->
+  </section>
+  <section id="fuentes-mapas-acerca">
+    <h2>Fuentes de mapas y acerca de</h2>
+    <p>En <strong>Ayuda → Mapas</strong> encontrará <strong>España</strong>, que abre el <a href="https://centrodedescargas.cnig.es/CentroDescargas/catalogo">catálogo del Centro Nacional de Información Geográfica</a>, y <strong>Francia</strong>, que abre el <a href="https://cartes.gouv.fr/rechercher-une-donnee/dataset/IGNF_BD-ORTHO">conjunto de datos BD ORTHO del IGN francés</a>.</p>
+    <p>La aplicación se ha probado con ficheros <code>.tif</code> del PNOA y con ficheros <code>.jp2</code> de IGNF.</p>
+    <p>La opción <strong>Ayuda → Acerca de</strong> muestra la autoría: «Creada por Antonio Muñiz Vega utilizando IA», e informa de que la aplicación no ofrece ninguna garantía y de que su uso es responsabilidad y riesgo del usuario.</p>
+    <p>La aplicación se distribuye bajo la Licencia Pública General de GNU, versión 3 (GPL-3.0). En «Ayuda → Acerca de» puede abrir el <a href="https://www.gnu.org/licenses/gpl-3.0.html">texto oficial de la licencia</a> y el <a href="https://github.com/munizvega/GeoImageToKmz">repositorio del proyecto en GitHub</a>.</p>
+    <p>La aplicación utiliza la librería geoespacial GDAL. Consulte su <a href="https://gdal.org">sitio web oficial</a>.</p>
   </section>
   <section id="problemas">
     <h2>Resolución de problemas</h2>
     <ul>
-      <li><strong>No hay capas visibles:</strong> cargue un GeoTIFF y active su visibilidad.</li>
+      <li><strong>No hay capas visibles:</strong> cargue un archivo ráster compatible y active su visibilidad.</li>
       <li><strong>No hay teselas o track seleccionado:</strong> seleccione al menos una celda, o cargue y elija un GPX según el modo.</li>
       <li><strong>Falta parte del recorrido:</strong> revise la cobertura en el visor y el contador; cambie el zoom, el margen o el máximo y vuelva a seleccionar.</li>
       <li><strong>No se puede cargar o exportar:</strong> compruebe que existan los archivos, su georreferencia, los permisos, la ruta de salida, el espacio temporal y el mensaje de error. Use un directorio temporal con espacio suficiente.</li>

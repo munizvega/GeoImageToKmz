@@ -21,7 +21,7 @@ public sealed class LanguageService : ILanguageService
 
     public void SetLanguage(string cultureCode)
     {
-        string clean = cultureCode.ToLowerInvariant().StartsWith("en") ? "en" : "es";
+        string clean = NormalizeLanguage(cultureCode);
         if (_currentLanguage != clean)
         {
             _currentLanguage = clean;
@@ -38,6 +38,7 @@ public sealed class LanguageService : ILanguageService
         Thread.CurrentThread.CurrentCulture = culture;
         Thread.CurrentThread.CurrentUICulture = culture;
         Strings.Culture = culture;
+        TifToKmz.Resources.Strings.Culture = culture;
 
         if (notify)
         {
@@ -59,14 +60,13 @@ public sealed class LanguageService : ILanguageService
                     string? lang = elem.GetString();
                     if (!string.IsNullOrWhiteSpace(lang))
                     {
-                        _currentLanguage = lang.ToLowerInvariant().StartsWith("en") ? "en" : "es";
+                        _currentLanguage = NormalizeLanguage(lang);
                     }
                 }
             }
             else
             {
-                string currentUiLang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName.ToLowerInvariant();
-                _currentLanguage = currentUiLang == "en" ? "en" : "es";
+                _currentLanguage = NormalizeLanguage(CultureInfo.CurrentUICulture.Name);
             }
         }
         catch
@@ -104,5 +104,11 @@ public sealed class LanguageService : ILanguageService
     {
         string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         return Path.Combine(appData, "TifToKmzMapEditor", _configFileName);
+    }
+
+    private static string NormalizeLanguage(string? cultureCode)
+    {
+        string languageCode = cultureCode?.Split('-', '_')[0].ToLowerInvariant() ?? string.Empty;
+        return languageCode is "en" or "fr" or "de" ? languageCode : "es";
     }
 }

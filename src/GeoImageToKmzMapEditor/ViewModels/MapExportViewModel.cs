@@ -50,7 +50,7 @@ public sealed class MapExportViewModel : ViewModelBase
     private const string _configFileName = "export.editor.json";
     private readonly MainViewModel _mainVm;
     private string _outputDirectory = string.Empty;
-    private string _kmzFileName = "mapa.kmz";
+    private string _kmzFileName = Strings.DefaultKmzName;
     private int _tileSize = 1024;
     private int _maxTiles = 250;
     private double _scale = 1.0;
@@ -99,7 +99,7 @@ public sealed class MapExportViewModel : ViewModelBase
         {
             cleanName = cleanName.Replace(c, '_');
         }
-        _kmzFileName = !string.IsNullOrWhiteSpace(cleanName) ? $"{cleanName}.kmz" : "mapa.kmz";
+        _kmzFileName = !string.IsNullOrWhiteSpace(cleanName) ? $"{cleanName}.kmz" : Strings.DefaultKmzName;
 
         SelectedTiles.CollectionChanged += (_, _) =>
         {

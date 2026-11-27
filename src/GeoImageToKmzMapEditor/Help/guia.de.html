@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoImageToKmz Karteneditor – Benutzerhandbuch</title>
+  <style>
+    body { font: 1rem/1.6 system-ui, sans-serif; color: #202b38; max-width: 56rem; margin: auto; padding: 1rem; }
+    h1, h2, h3 { line-height: 1.25; color: #16446c; }
+    nav, .aviso { background: #edf4fa; padding: 1rem; border-radius: .4rem; }
+    code { background: #edf0f2; padding: .1em .25em; }
+    a { color: #005a9c; }
+    li { margin: .3rem 0; }
+    section { scroll-margin-top: 1rem; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>GeoImageToKmz Karteneditor – Benutzerhandbuch</h1>
+  <p>Bereiten Sie Karten vor, wählen Sie einen Bereich aus und erstellen Sie eine KMZ-Datei für Ihren Kartenbetrachter oder ein kompatibles Gerät.</p>
+</header>
+<nav aria-label="Inhalt">
+  <strong>Inhalt</strong>
+  <ul>
+    <li><a href="#inicio">Erste Schritte</a></li>
+    <li><a href="#GarminCustomMaps">Garmin Custom Maps</a></li>
+    <li><a href="#interfaz">Oberfläche und Navigation</a></li>
+    <li><a href="#proyectos">Projekte</a></li>
+    <li><a href="#mapas-tracks">Karten und Tracks</a></li>
+    <li><a href="#exportacion">KMZ-Export</a></li>
+    <li><a href="#teselas">Kacheln auswählen</a></li>
+    <li><a href="#teselas-pequenas">Arbeitsablauf mit kleinen Kacheln</a></li>
+    <li><a href="#teselas-grandes">Arbeitsablauf mit großen Kacheln</a></li>
+    <li><a href="#track">Bereich anhand eines Tracks auswählen</a></li>
+    <li><a href="#ajustes-salida">Ausgabe- und Helligkeitseinstellungen</a></li>
+    <li><a href="#directorios">Sprache und temporäre Verzeichnisse</a></li>
+    <li><a href="#fuentes-mapas-acerca">Kartenquellen und Info</a></li>
+    <li><a href="#problemas">Fehlerbehebung</a></li>
+  </ul>
+</nav>
+<main>
+  <section id="inicio">
+    <h2>Erste Schritte</h2>
+    <ol>
+      <li>Öffnen Sie den Editor und laden Sie eine oder mehrere georeferenzierte, von GDAL unterstützte Rasterdateien über <strong>Karten laden</strong> oder durch Ziehen in das Fenster.</li>
+      <li>Wenn Sie eine Route verwenden möchten, laden Sie über <strong>Tracks laden</strong> eine GPX-Datei. Damit können Sie eine Karte rund um den Track erstellen.</li>
+      <li>Prüfen Sie die sichtbaren Ebenen, wählen Sie einen Bereich und die Exporteinstellungen aus und legen Sie das KMZ-Ziel fest.</li>
+      <li>Klicken Sie auf <strong>Als KMZ exportieren</strong>, warten Sie auf die Bestätigung und prüfen Sie das Ergebnis im Zielprogramm oder auf dem Zielgerät.</li>
+    </ol>
+    <p>Starten Sie die Anwendung unter Windows über die <code>.exe</code>-Datei. Führen Sie sie unter Linux mit <code>./GeoImageToKmzMapEditor</code> aus.</p>
+  </section>
+  <section id="GarminCustomMaps">
+    <h2>Garmin Custom Maps</h2>
+    <p>Diese Anwendung eignet sich gut zum Erstellen von Garmin Custom Maps im KMZ-Format. Die manuelle Erstellung kann mühsam sein, da jedes Gerät eigene Einschränkungen hat.</p>
+    <p>Da sich die Geräte unterscheiden, prüfen Sie die Grenzen Ihres Geräts und passen Sie die Optionen entsprechend an.</p>
+    <p>Garmin BaseCamp kann dabei helfen: Wenn Sie versuchen, eine Karte mit mehr als der zulässigen Kachelanzahl zu kopieren, wird ein Fehler angezeigt und auf die überschrittene Grenze hingewiesen.</p>
+    <p>Die Anwendung wurde mit einem Garmin Edge 850 getestet, dessen Grenze bei 250 Kacheln liegt. Informationen zur Kompatibilität und zu den Grenzwerten sind nicht für alle Geräte eindeutig; möglicherweise müssen Sie die Grenzen Ihres Geräts selbst testen.</p>
+    <p>Da Kachelgröße und -anzahl begrenzt sind, hängen Qualität und Auflösung der Karte von der Kachelanzahl ab. Mehr Kacheln ermöglichen eine größere oder detailliertere Karte: 250 Kacheln auf einem Quadratkilometer liefern mehr Details als 100 Kacheln auf derselben Fläche. Verwenden Sie möglichst viele Kacheln, die Ihr Gerät erlaubt. Sie können entlang der Route sehr kleine Kacheln auswählen und anschließend herauszoomen, um größere Kacheln mit weniger Details für das Umfeld oder mögliche Ausweichrouten hinzuzufügen.</p>
+  </section>
+  <section id="interfaz">
+    <span id="mapa"></span>
+    <h2>Oberfläche und Navigation</h2>
+    <p>Das Fenster enthält den Projekt-, Karten- und Track-Baum, den zentralen Kartenbetrachter und den Bereich <strong>Exportoptionen</strong>. Die Statusleiste zeigt beispielsweise Koordinaten, Ladefortschritt und Fehler an.</p>
+    <p>Ziehen Sie die Karte, um sie zu verschieben. Verwenden Sie das Mausrad oder die Schaltflächen <strong>+</strong> und <strong>−</strong> zum Vergrößern und Verkleinern. Mit <strong>Gesamte Karte anzeigen</strong> kehren Sie zur Gesamtansicht zurück. Die angezeigten Koordinaten hängen von der Kartenprojektion ab.</p>
+  </section>
+  <section id="proyectos">
+    <h2>Projekte</h2>
+    <p>Unter <strong>Datei</strong> können Sie ein Projekt erstellen, öffnen, speichern oder unter einem neuen Namen speichern. Projekte verwenden die Erweiterung <code>.gtk</code>. Im Baum können Sie Elemente umbenennen oder schließen. Beim Schließen mit ungespeicherten Änderungen fragt der Editor, ob Sie diese speichern möchten.</p>
+    <p>Ein Projekt speichert Verweise auf Dateien und Arbeitseinstellungen, einschließlich ausgewählter Kacheln. Bewahren Sie die ursprünglichen Raster- und GPX-Dateien auf und halten Sie ihre Pfade verfügbar: Ein Projekt zu speichern ist nicht dasselbe wie einen KMZ-Export zu erstellen.</p>
+  </section>
+  <section id="mapas-tracks">
+    <h2>Karten und Tracks</h2>
+    <p>Verwenden Sie <strong>Karten laden</strong>, um unterstützte Rasterdateien wie <code>.tif</code>, <code>.tiff</code> oder <code>.jp2</code> auszuwählen, und <strong>Tracks laden</strong> für <code>.gpx</code>-Dateien. Im Baum können Sie Elemente suchen, ihre Sichtbarkeit ändern und sie schließen. Das Kontextmenü bietet unter anderem die Möglichkeit, den übergeordneten Ordner zu öffnen.</p>
+    <p>Sichtbare Rasterebenen werden exportiert. Blenden Sie nicht benötigte Ebenen aus und prüfen Sie, ob Karten und Track denselben Bereich abdecken. GPX dient zum Anzeigen der Route und zur Bereichsauswahl; der Track wird nicht automatisch als separate Linie in die KMZ-Datei exportiert.</p>
+  </section>
+  <section id="exportacion">
+    <span id="configuracion-exportacion"></span>
+    <h2>KMZ-Export</h2>
+    <p>Wählen Sie unter <strong>Zu exportierender Bereich</strong> eine der folgenden Optionen:</p>
+    <ul>
+      <li><strong>Ausgewählte Karten</strong>: verarbeitet die vollständigen sichtbaren Rasterebenen.</li>
+      <li><strong>Ausgewählte Kacheln</strong>: verarbeitet die im Kartenbetrachter ausgewählten rechteckigen Bereiche.</li>
+      <li><strong>Karte auf den Track-Umriss zuschneiden</strong>: verwendet das Rechteck um den Track zuzüglich des angegebenen Randes. Es handelt sich nicht um eine Maske, die exakt dem Routenverlauf folgt.</li>
+    </ul>
+    <p>Geben Sie im Exportbereich den Ordner und Dateinamen ein; falls nötig, wird <code>.kmz</code> ergänzt. Klicken Sie auf <strong>Als KMZ exportieren</strong> und beobachten Sie den Gesamtfortschritt und den Fortschritt der einzelnen Schritte. Während der Verarbeitung können Sie <strong>Abbrechen</strong> anfordern. Warten Sie die Abbruchmeldung ab, bevor Sie fortfahren.</p>
+  </section>
+  <section id="teselas">
+    <h2>Kacheln auswählen</h2>
+    <p>Wählen Sie <strong>Ausgewählte Kacheln</strong>. Klicken Sie im Navigationsmodus auf eine Kartenfläche, um sie hinzuzufügen, oder in eine ausgewählte Kachel, um sie zu entfernen. Ziehen Sie die Karte zum Verschieben. Der Zähler zeigt die ausgewählte und die maximal erlaubte Anzahl. Ist das Maximum erreicht, können manuell keine weiteren Kacheln hinzugefügt werden.</p>
+    <p>Das Raster stellt geografische Bereiche dar: Solange die Größe nicht fixiert ist, bestimmt die Zoomstufe die Abmessungen jeder Fläche am Boden. <strong>Kachelgröße fixieren</strong> übernimmt die geografischen Abmessungen der ersten Auswahl für weitere Auswahlen, auch wenn Sie die Zoomstufe ändern. Deaktivieren Sie die Option, um bei einer anderen Zoomstufe neue Abmessungen auszuwählen; vorhandene Auswahlen bleiben erhalten.</p>
+    <p><strong>Kacheln löschen</strong> entfernt die gesamte Auswahl. <strong>Kacheln optimieren</strong> unterteilt ausgewählte Bereiche gleichmäßig und nutzt dabei das verfügbare Maximum. Die Funktion führt keine Kacheln zusammen und erhöht das Maximum nicht. Wenn nicht genügend Plätze verfügbar sind, ändert sich möglicherweise nichts.</p>
+    <p>Die geografische Größe der Auswahl ist nicht mit der <strong>Kachelgröße (px)</strong> identisch, die die Pixelzahl der Ausgabe festlegt.</p>
+  </section>
+  <section id="teselas-pequenas">
+    <h2>Arbeitsablauf mit kleinen Kacheln</h2>
+    <ol>
+      <li>Wählen Sie den Kachelmodus, löschen Sie bei Bedarf die Auswahl und zoomen Sie hinein, bis die Flächen kleine Bereiche abdecken.</li>
+      <li>Wählen Sie die gewünschten Flächen aus. Um ihre geografische Größe beim Navigieren beizubehalten, aktivieren Sie nach der ersten Auswahl <strong>Kachelgröße fixieren</strong>.</li>
+      <li>Prüfen Sie die Abdeckung und den Zähler. Erhöhen Sie bei Bedarf das Maximum oder verkleinern Sie den Bereich. Legen Sie Ziel und Ausgabe fest und exportieren Sie.</li>
+    </ol>
+    <p>Kleine Bereiche ermöglichen eine genauere Auswahl, benötigen jedoch möglicherweise mehr Kacheln. Prüfen Sie die Grenzen des Zielgeräts.</p>
+    <p>Bei gleicher Pixelgröße der Ausgabe kann eine Kachel, die weniger Gelände abdeckt, mehr Details erhalten, sofern die Auflösung des Quellbilds ausreicht. Wählen Sie beispielsweise zuerst kleine Kacheln entlang des Tracks aus. Deaktivieren Sie danach die Fixierung, zoomen Sie heraus und ergänzen Sie größere, weniger detaillierte Kacheln, um die Abdeckung zu erweitern.</p>
+  </section>
+  <section id="teselas-grandes">
+    <h2>Arbeitsablauf mit großen Kacheln</h2>
+    <ol>
+      <li>Löschen Sie die Auswahl und zoomen Sie vor der Auswahl heraus, damit jede Fläche ein größeres Gebiet abdeckt. Fixieren Sie die Größe nach der ersten Auswahl, wenn sie bei Zoomänderungen beibehalten werden soll.</li>
+      <li>Wählen Sie die benötigten Bereiche aus und prüfen Sie, ob sie die geplante Route oder Region abdecken. Eine große Fläche kann Gelände einschließen, das Sie nicht benötigen.</li>
+      <li>Um die Bereiche ohne Änderung der Abdeckung zu unterteilen, klicken Sie auf <strong>Kacheln optimieren</strong> und prüfen Sie den Zähler. Legen Sie anschließend die Ausgabe fest und exportieren Sie.</li>
+    </ol>
+    <p>Für eine andere Größe löschen Sie die Kacheln oder deaktivieren die Fixierung und ändern den Zoom. Die Optimierung erstellt mehr kleine Auswahlen, garantiert jedoch keine bestimmte Anzahl.</p>
+  </section>
+  <section id="track">
+    <h2>Bereich anhand eines Tracks auswählen</h2>
+    <p>Laden Sie eine GPX-Datei und wählen Sie <strong>Karte auf den Track-Umriss zuschneiden</strong>, den Track und den <strong>Mindestabstand zum Track</strong> in Metern aus. Der Export verwendet das um den Rand vergrößerte Begrenzungsrechteck des Tracks und kann deshalb auch weit von der Route entfernte Bereiche enthalten.</p>
+    <p>Alternativ können Sie unter <strong>Ausgewählte Kacheln</strong> die Option <strong>Kacheln entlang des Tracks auswählen</strong> aktivieren, den Track und den Rand festlegen und auf <strong>Kacheln auswählen</strong> klicken. Dabei werden Zellen in der Nähe der Route ausgewählt. Die bisherige Auswahl wird ersetzt. Prüfen Sie Karte und Zähler: Sobald das Maximum erreicht ist, werden keine weiteren Kacheln hinzugefügt und ein Teil des Tracks kann unbedeckt bleiben.</p>
+    <p>Die Rastergröße hängt von der Zoomstufe oder – bei fixierter Größe und vorhandener Auswahl – von der ersten ausgewählten Kachel ab. Passen Sie Zoom, Rand und Maximum an und wiederholen Sie die Auswahl, wenn Sie eine andere Abdeckung benötigen.</p>
+  </section>
+  <section id="ajustes-salida">
+    <h2>Ausgabe- und Helligkeitseinstellungen</h2>
+    <ul>
+      <li><strong>Kachelgröße (px)</strong>: 256 bis 4096; Standardwert 1024. Für Garmin Custom Maps sind 1024 × 1024 Pixel ein gängiger Richtwert. Größere Bilder können an Auflösung verlieren oder von manchen Geräten nicht unterstützt werden.</li>
+      <li><strong>Maximale Kachelanzahl</strong>: 1 bis 1000; Standardwert 250. Sie begrenzt die Auswahl und wird beim Erstellen der KMZ-Datei verwendet. Die Grenzwerte von Garmin Custom Maps hängen vom Modell ab: Manche Geräte unterstützen 100, andere 500 Kacheln, wobei weitere installierte Karten mitzählen. Prüfen Sie die technischen Daten Ihres Geräts; 250 garantiert keine Kompatibilität.</li>
+      <li><strong>JPEG-Qualität (%)</strong>: 1 bis 100 im Hauptbereich. Höhere Werte erhalten in der Regel mehr Details, benötigen jedoch mehr Speicherplatz.</li>
+      <li><strong>Bilder vor dem Erstellen der KMZ aufhellen</strong>: aktiviert Anpassungen für Gamma, Helligkeit und Kontrast. Gamma und Kontrast reichen von 0,1 bis 10, die Helligkeit von 0 bis 100 %. Ein Gammawert über 1 hellt Mitteltöne auf; die Helligkeit hebt dunkle Bereiche an und der Kontrast vergrößert den Unterschied zwischen hellen und dunklen Bereichen.</li>
+    </ul>
+    <p>Die Bildverarbeitung kann langsam sein und viel Arbeitsspeicher sowie Festplattenspeicher benötigen, auch wenn das Endergebnis nur wenige Megabyte groß ist. Testen Sie zunächst einen kleinen Bereich und prüfen Sie Lesbarkeit und Dateigröße, bevor Sie einen großen Bereich erstellen. Im Projekt gespeicherte Einstellungen können die Anfangswerte ändern.</p>
+  </section>
+  <section id="directorios">
+    <span id="directorios-temporales"></span>
+    <h2>Sprache und temporäre Verzeichnisse</h2>
+    <p>Wählen Sie unter <strong>Optionen → Sprache</strong> Spanisch, Englisch, Französisch oder Deutsch. Unter <strong>Optionen → Verzeichnisse</strong> können Sie den tatsächlich verwendeten temporären Pfad und den belegten Speicherplatz prüfen. Geben Sie einen eigenen Ordner ein oder wählen Sie ihn aus und klicken Sie auf <strong>Speichern</strong>. <strong>Auf Standard zurücksetzen</strong> stellt den temporären Anwendungsordner wieder her.</p>
+    <p class="aviso"><strong>Achtung:</strong> <strong>Temporäres Verzeichnis leeren</strong> löscht Dateien und Ordner im aktuellen temporären Verzeichnis. Verwenden Sie einen eigens dafür vorgesehenen Ordner, der keine persönlichen Daten enthält, und leeren Sie ihn nicht während der Verarbeitung.</p>
+  </section>
+  <section id="fuentes-mapas-acerca">
+    <h2>Kartenquellen und Info</h2>
+    <p>Unter <strong>Hilfe → Karten</strong> öffnet <strong>Spanien</strong> den <a href="https://centrodedescargas.cnig.es/CentroDescargas/catalogo">Download-Katalog des spanischen Nationalen Geographischen Informationszentrums</a>. <strong>Frankreich</strong> öffnet den <a href="https://cartes.gouv.fr/rechercher-une-donnee/dataset/IGNF_BD-ORTHO">BD-ORTHO-Datensatz des französischen IGN</a>.</p>
+    <p>Die Anwendung wurde mit PNOA-<code>.tif</code>-Dateien und IGNF-<code>.jp2</code>-Dateien getestet.</p>
+    <p><strong>Hilfe → Info</strong> zeigt den Urheberhinweis „Erstellt von Antonio Muñiz Vega mithilfe von KI“ und weist darauf hin, dass die Anwendung ohne Gewähr bereitgestellt wird und die Nutzung auf eigene Verantwortung und eigenes Risiko erfolgt.</p>
+    <p>Die Anwendung wird unter der GNU General Public License, Version 3 (GPL-3.0), veröffentlicht. Unter <strong>Hilfe → Info</strong> können Sie den <a href="https://www.gnu.org/licenses/gpl-3.0.html">offiziellen Lizenztext</a> und das <a href="https://github.com/munizvega/GeoImageToKmz">Projekt-Repository auf GitHub</a> öffnen.</p>
+    <p>Die Anwendung verwendet die Geodatenbibliothek GDAL. Besuchen Sie die <a href="https://gdal.org">offizielle Website</a>.</p>
+  </section>
+  <section id="problemas">
+    <h2>Fehlerbehebung</h2>
+    <ul>
+      <li><strong>Keine sichtbaren Ebenen:</strong> Laden Sie eine unterstützte Rasterdatei und aktivieren Sie deren Sichtbarkeit.</li>
+      <li><strong>Keine Kacheln oder kein Track ausgewählt:</strong> Wählen Sie mindestens eine Fläche aus oder laden und wählen Sie je nach Modus eine GPX-Datei.</li>
+      <li><strong>Ein Teil der Route fehlt:</strong> Prüfen Sie Abdeckung und Zähler im Kartenbetrachter. Ändern Sie Zoom, Rand oder Maximum und führen Sie die Auswahl erneut aus.</li>
+      <li><strong>Laden oder Export nicht möglich:</strong> Prüfen Sie, ob die Dateien vorhanden und georeferenziert sind, sowie Berechtigungen, Ausgabepfad, freien temporären Speicherplatz und die Fehlermeldung. Verwenden Sie ein temporäres Verzeichnis mit ausreichend freiem Speicher.</li>
+      <li><strong>Die KMZ-Datei sieht anders aus als erwartet:</strong> Prüfen Sie sichtbare Ebenen, Bereich und Koordinatenreferenzsystem. Testen Sie Kachelgröße, Qualität und Helligkeit im Zielprogramm oder auf dem Zielgerät.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

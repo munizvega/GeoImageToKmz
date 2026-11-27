@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <data name="ErrorGpxNotFound"><value>Le fichier GPX spécifié n'existe pas.</value></data>
+  <data name="ErrorGpxWithoutPoints"><value>Le fichier GPX ne contient aucun point.</value></data>
+  <data name="ErrorImagesFolderNotFound"><value>Le dossier d'images n'existe pas : {0}</value></data>
+  <data name="ErrorNoIntersectingTiles"><value>Aucun fichier TIFF ne croise le tracé GPX.</value></data>
+  <data name="ErrorTooManyTiles"><value>{0} tuiles ont été générées, dépassant la limite de {1}.</value></data>
+  <data name="ErrorInvalidGpxPath"><value>Chemin du fichier GPX non valide.</value></data>
+  <data name="ErrorInvalidImagesPath"><value>Chemin du dossier d'images non valide.</value></data>
+  <data name="ErrorInvalidOutputPath"><value>Chemin de sortie non valide.</value></data>
+  <data name="ErrorInvalidWorkspacePath"><value>Chemin de l'espace de travail temporaire non valide.</value></data>
+  <data name="StepSearchingImages"><value>Recherche des images qui croisent le GPX...</value></data>
+  <data name="StepCroppingImages"><value>Découpage de {0} image(s)...</value></data>
+  <data name="StepReprojecting"><value>Reprojection de l'image...</value></data>
+  <data name="StepMerging"><value>Fusion des images...</value></data>
+  <data name="StepResizing"><value>Redimensionnement de l'image...</value></data>
+  <data name="StepBrightening"><value>Réglage de la luminosité et du contraste...</value></data>
+  <data name="StepSplitting"><value>Découpage en tuiles...</value></data>
+  <data name="StepExportingJpeg"><value>Exportation des tuiles en JPEG...</value></data>
+  <data name="StepBuildingKmz"><value>Génération du fichier KMZ...</value></data>
+  <data name="StepCompleted"><value>Conversion terminée.</value></data>
+  <data name="ConsoleUsage"><value>Utilisation : TifToKmz --gpx &lt;chemin&gt; --imagesPath &lt;chemin&gt; --outputPath &lt;chemin&gt; [--config &lt;chemin&gt;]</value></data>
+  <data name="ConsoleHelpOptions" xml:space="preserve"><value>Options :
+  --gpx &lt;chemin&gt;         Chemin du fichier de tracé GPX.
+  --imagesPath &lt;chemin&gt;  Chemin du dossier contenant les images TIFF.
+  --outputPath &lt;chemin&gt;  Chemin du fichier KMZ de sortie.
+  --config &lt;chemin&gt;      Chemin facultatif d'un fichier de configuration appsettings.json personnalisé.</value></data>
+  <data name="ConsoleHelpLanguageComment"><value>La langue peut être configurée dans appsettings.json avec la propriété « Language » (par exemple « es », « en », « fr », « de », ou une valeur vide/« system » pour utiliser la langue du système).</value></data>
+  <data name="ConsoleStartingProcessing"><value>Démarrage du traitement...</value></data>
+  <data name="ConsoleGpxPath"><value>Chemin GPX : {0}</value></data>
+  <data name="ConsoleImagesPath"><value>Chemin des images : {0}</value></data>
+  <data name="ConsoleOutputPath"><value>Chemin de sortie : {0}</value></data>
+  <data name="ConsoleProgressFormat"><value>[Progression] {0}</value></data>
+  <data name="ConsoleDetailedProgressFormat"><value>[Progression] {0:F0} %</value></data>
+  <data name="ConsoleDone"><value>Terminé.</value></data>
+  <data name="ConsoleErrorDuringProcessing"><value>Erreur pendant le traitement : {0}</value></data>
+  <data name="ErrorInvalidPathCharacters"><value>Le chemin indiqué pour {0} contient des caractères non valides : {1}</value></data>
+</root>

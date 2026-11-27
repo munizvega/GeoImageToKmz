@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoImageToKmz Map Editor Guide</title>
+  <style>
+    body { font: 1rem/1.6 system-ui, sans-serif; color: #202b38; max-width: 56rem; margin: auto; padding: 1rem; }
+    h1, h2, h3 { line-height: 1.25; color: #16446c; }
+    nav, .aviso { background: #edf4fa; padding: 1rem; border-radius: .4rem; }
+    code { background: #edf0f2; padding: .1em .25em; }
+    a { color: #005a9c; }
+    li { margin: .3rem 0; }
+    section { scroll-margin-top: 1rem; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>GeoImageToKmz Map Editor Guide</h1>
+  <p>Prepare maps, select an area, and create a KMZ for your viewer or compatible device.</p>
+</header>
+<nav aria-label="Contents">
+  <strong>Contents</strong>
+  <ul>
+    <li><a href="#inicio">Getting started</a></li>
+    <li><a href="#GarminCustomMaps">Garmin Custom Maps</a></li>
+    <li><a href="#interfaz">Interface and navigation</a></li>
+    <li><a href="#proyectos">Projects</a></li>
+    <li><a href="#mapas-tracks">Maps and tracks</a></li>
+    <li><a href="#exportacion">KMZ export</a></li>
+    <li><a href="#teselas">Selecting tiles</a></li>
+    <li><a href="#teselas-pequenas">Workflow with small tiles</a></li>
+    <li><a href="#teselas-grandes">Workflow with large tiles</a></li>
+    <li><a href="#track">Selecting an area from a track</a></li>
+    <li><a href="#ajustes-salida">Output and brightness settings</a></li>
+    <li><a href="#directorios">Language and temporary directories</a></li>
+    <li><a href="#fuentes-mapas-acerca">Map sources and about</a></li>
+    <li><a href="#problemas">Troubleshooting</a></li>
+  </ul>
+</nav>
+<main>
+  <section id="inicio">
+    <h2>Getting started</h2>
+    <ol>
+      <li>Open the editor and load one or more georeferenced raster files supported by GDAL with <strong>Load maps</strong> or by dragging them into the window.</li>
+      <li>To use a route, load a GPX file with <strong>Load tracks</strong>. This helps you create a map around the track.</li>
+      <li>Check the visible layers, select an area and export settings, then choose the KMZ destination.</li>
+      <li>Click <strong>Export to KMZ</strong>, wait for confirmation, and check the result in your target viewer or device.</li>
+    </ol>
+    <p>On Windows, start the application from its <code>.exe</code> file. On Linux, run <code>./GeoImageToKmzMapEditor</code>.</p>
+  </section>
+  <section id="GarminCustomMaps">
+    <h2>Garmin Custom Maps</h2>
+    <p>This application is well suited to creating Garmin Custom Maps in KMZ format. Manually creating them can be tedious because each device imposes its own restrictions.</p>
+    <p>Devices differ, so check your device's limits and configure the options accordingly.</p>
+    <p>Garmin BaseCamp can help: if you try to copy a map with more tiles than allowed, it reports an error and indicates that the limit was exceeded.</p>
+    <p>The application has been tested with a Garmin Edge 850, which has a 250-tile limit. Compatibility information and limits are not clear for every device, so you may need to test the limits for yours.</p>
+    <p>Because tile size and count are limited, map quality and resolution depend on the number of tiles. More tiles can provide a larger or more detailed map: 250 tiles covering one square kilometre provide more detail than 100 tiles covering the same area. Try to use as many tiles as your device allows. You can select very small tiles along the route, then zoom out and add larger, lower-detail tiles around them for the surrounding area or possible escape routes.</p>
+  </section>
+  <section id="interfaz">
+    <span id="mapa"></span>
+    <h2>Interface and navigation</h2>
+    <p>The window brings together the project, map and track tree, the central viewer, and the <strong>Export options</strong> panel. The status bar shows information such as coordinates, loading progress, and errors.</p>
+    <p>Drag on the map to pan; use the wheel or the <strong>+</strong> and <strong>−</strong> buttons to zoom in or out, and <strong>Fit full map</strong> to return to the full extent. Displayed coordinates depend on the map projection.</p>
+  </section>
+  <section id="proyectos">
+    <h2>Projects</h2>
+    <p>From <strong>File</strong>, you can create, open, save, or save a project under a new name. Projects use the <code>.gtk</code> extension. Use the tree to rename or close items. If there are unsaved changes when you close, the editor asks whether to save them.</p>
+    <p>A project stores references to files and work options, including selected tiles. Keep the original raster and GPX files and their paths available: saving a project is not the same as exporting a KMZ.</p>
+  </section>
+  <section id="mapas-tracks">
+    <h2>Maps and tracks</h2>
+    <p>Use <strong>Load maps</strong> to select supported raster files such as <code>.tif</code>, <code>.tiff</code>, or <code>.jp2</code>, and <strong>Load tracks</strong> to select <code>.gpx</code> files. The tree lets you search, change visibility, and close items; its context menu includes actions such as opening the containing folder.</p>
+    <p>Visible raster layers are included in the export. Hide any layers you do not want, and check that the maps and track cover the same area. GPX is used to display the route and select an area; do not assume the track is exported as a separate line in the KMZ.</p>
+  </section>
+  <section id="exportacion">
+    <span id="configuracion-exportacion"></span>
+    <h2>KMZ export</h2>
+    <p>Under <strong>Area to export</strong>, choose one of the following:</p>
+    <ul>
+      <li><strong>Selected maps</strong>: process the complete visible raster layers.</li>
+      <li><strong>Selected tiles</strong>: process the rectangular areas selected in the viewer.</li>
+      <li><strong>Crop map to track contour</strong>: use the rectangle around the track plus the specified margin; this is not a mask that follows the exact route.</li>
+    </ul>
+    <p>In the export panel, enter the directory and file name; <code>.kmz</code> is added if needed. Click <strong>Export to KMZ</strong> and monitor overall and per-step progress. You can request <strong>Cancel</strong> during processing; wait for the cancellation message before continuing.</p>
+  </section>
+  <section id="teselas">
+    <h2>Selecting tiles</h2>
+    <p>Select <strong>Selected tiles</strong>. In navigation mode, click a map cell to add it; click inside a selected tile to remove it. Drag to pan. The counter shows selected/maximum; once the maximum is reached, no more tiles can be added manually.</p>
+    <p>The grid represents geographic extents: until a size is locked, zoom determines each cell's ground dimensions. <strong>Lock tile size</strong> reuses the geographic dimensions of the first selection for later selections, even when you change zoom. Turn it off to choose new dimensions at another zoom level; existing selections remain.</p>
+    <p><strong>Clear tiles</strong> removes the entire selection. <strong>Optimize tiles</strong> subdivides selected areas uniformly, making use of the available maximum; it does not merge tiles or raise the maximum. If there is not enough room, it may make no changes.</p>
+    <p>The geographic size of these selections is different from <strong>Tile size (px)</strong>, which controls output pixels.</p>
+  </section>
+  <section id="teselas-pequenas">
+    <h2>Workflow with small tiles</h2>
+    <ol>
+      <li>Select tile mode, clear the selection if needed, and zoom in until cells cover small areas.</li>
+      <li>Select the desired cells. To keep their geographic size while navigating, enable <strong>Lock tile size</strong> after selecting the first tile.</li>
+      <li>Review coverage and the counter; raise the maximum if needed or reduce the area. Set the destination and output options, then export.</li>
+    </ol>
+    <p>Small areas allow more precise selection but may require more tiles. Check the limits of the target device.</p>
+    <p>With the same output pixel size, a tile covering less ground can preserve more detail, provided the source image has enough resolution. For example, first select small tiles along the track; then turn off the lock, zoom out, and add larger, lower-detail tiles around them to extend coverage.</p>
+  </section>
+  <section id="teselas-grandes">
+    <h2>Workflow with large tiles</h2>
+    <ol>
+      <li>Clear the selection and zoom out before selecting so each cell covers a larger area. Lock the size after the first selection if you want to keep it while zooming.</li>
+      <li>Select the required areas and check that they cover the intended route or region. A large cell may include terrain you do not need.</li>
+      <li>To subdivide those areas without changing their coverage, click <strong>Optimize tiles</strong> and review the counter. Then configure the output and export.</li>
+    </ol>
+    <p>To select a different size, clear the tiles or turn off the lock and change the zoom. Optimization creates more, smaller selections; it does not guarantee a particular count.</p>
+  </section>
+  <section id="track">
+    <h2>Selecting an area from a track</h2>
+    <p>Load a GPX file and choose <strong>Crop map to track contour</strong>, the track, and the <strong>Minimum distance to track</strong> in metres. The export uses the track's bounding rectangle expanded by that margin, so it may include areas far from the route.</p>
+    <p>Alternatively, in <strong>Selected tiles</strong>, enable <strong>Select tiles along track</strong>, choose the track and margin, then click <strong>Select tiles</strong>. Nearby cells are selected. This replaces the previous selection; review the map and counter. Once the maximum is reached, no more tiles are added, so part of the track may remain uncovered.</p>
+    <p>Grid size depends on zoom or, when locked and a selection already exists, on the first selected tile. Adjust zoom, margin, and maximum, then repeat the selection if you need different coverage.</p>
+  </section>
+  <section id="ajustes-salida">
+    <h2>Output and brightness settings</h2>
+    <ul>
+      <li><strong>Tile size (px)</strong>: 256 to 4096; default 1024. For Garmin Custom Maps, 1024 × 1024 pixels is a common reference; larger images may lose resolution or may not be supported by some devices.</li>
+      <li><strong>Maximum tiles</strong>: 1 to 1000; default 250. It limits selection and is used when generating the KMZ. Garmin Custom Maps limits depend on the model: some support 100 tiles and others 500, including other installed maps. Check your device specifications; 250 does not guarantee compatibility.</li>
+      <li><strong>JPEG quality (%)</strong>: 1 to 100 in the main panel; higher values usually preserve more detail at the cost of file size.</li>
+      <li><strong>Brighten images before creating the KMZ</strong>: enables gamma, brightness, and contrast adjustments. Gamma and contrast range from 0.1 to 10; brightness ranges from 0 to 100%. Gamma above 1 brightens midtones; brightness lifts dark areas, and contrast increases the difference between light and dark areas.</li>
+    </ul>
+    <p>Image processing can be slow and use substantial memory and disk space, even if the final result is only a few megabytes. Try a small area first and check readability and file size before processing a large area. Settings saved in the project may change the initial values.</p>
+  </section>
+  <section id="directorios">
+    <span id="directorios-temporales"></span>
+    <h2>Language and temporary directories</h2>
+    <p>Under <strong>Options → Language</strong>, choose Spanish, English, Français, or Deutsch. Under <strong>Options → Directories</strong>, check the effective temporary path and space used. Enter or browse to a custom folder and click <strong>Save</strong>; <strong>Reset to default</strong> restores the application's temporary folder.</p>
+    <p class="aviso"><strong>Caution:</strong> <strong>Clear temporary directory</strong> deletes files and folders from the current temporary directory. Use a dedicated folder, not one containing personal data, and do not clear it while processing is underway.</p>
+  </section>
+  <section id="fuentes-mapas-acerca">
+    <h2>Map sources and about</h2>
+    <p>Under <strong>Help → Maps</strong>, choose <strong>Spain</strong> to open the <a href="https://centrodedescargas.cnig.es/CentroDescargas/catalogo">National Geographic Information Centre download catalogue</a>, or <strong>France</strong> to open the <a href="https://cartes.gouv.fr/rechercher-une-donnee/dataset/IGNF_BD-ORTHO">French IGN BD ORTHO dataset</a>.</p>
+    <p>The application has been tested with PNOA <code>.tif</code> files and IGNF <code>.jp2</code> files.</p>
+    <p><strong>Help → About</strong> displays the creator credit, “Created by Antonio Muñiz Vega using AI,” and states that the application comes with no warranty and is used at the user's own risk and responsibility.</p>
+    <p>The application is distributed under the GNU General Public License, version 3 (GPL-3.0). Under <strong>Help → About</strong>, you can open the <a href="https://www.gnu.org/licenses/gpl-3.0.html">official license text</a> and the <a href="https://github.com/munizvega/GeoImageToKmz">project repository on GitHub</a>.</p>
+    <p>The application uses the GDAL geospatial library. Visit its <a href="https://gdal.org">official website</a>.</p>
+  </section>
+  <section id="problemas">
+    <h2>Troubleshooting</h2>
+    <ul>
+      <li><strong>No visible layers:</strong> load a supported raster file and enable its visibility.</li>
+      <li><strong>No tiles or track selected:</strong> select at least one cell, or load and select a GPX file for the chosen mode.</li>
+      <li><strong>Part of the route is missing:</strong> review coverage in the viewer and the counter; change zoom, margin, or maximum, then select again.</li>
+      <li><strong>Loading or export fails:</strong> check that the files exist and are georeferenced, verify permissions, output path, temporary disk space, and the error message. Use a temporary directory with enough free space.</li>
+      <li><strong>The KMZ does not look as expected:</strong> check visible layers, area, and coordinate reference system; test tile size, quality, and brightness in the target viewer or device.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

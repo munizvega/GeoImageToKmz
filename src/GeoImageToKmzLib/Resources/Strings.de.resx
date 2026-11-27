@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <data name="ErrorGpxNotFound"><value>Die angegebene GPX-Datei ist nicht vorhanden.</value></data>
+  <data name="ErrorGpxWithoutPoints"><value>Die GPX-Datei enthält keine Punkte.</value></data>
+  <data name="ErrorImagesFolderNotFound"><value>Der Bilderordner ist nicht vorhanden: {0}</value></data>
+  <data name="ErrorNoIntersectingTiles"><value>Keine TIFF-Dateien überschneiden sich mit dem GPX-Track.</value></data>
+  <data name="ErrorTooManyTiles"><value>{0} Kacheln wurden erstellt und überschreiten damit den Grenzwert von {1}.</value></data>
+  <data name="ErrorInvalidGpxPath"><value>Ungültiger GPX-Dateipfad.</value></data>
+  <data name="ErrorInvalidImagesPath"><value>Ungültiger Pfad zum Bilderordner.</value></data>
+  <data name="ErrorInvalidOutputPath"><value>Ungültiger Ausgabepfad.</value></data>
+  <data name="ErrorInvalidWorkspacePath"><value>Ungültiger Pfad zum temporären Arbeitsbereich.</value></data>
+  <data name="StepSearchingImages"><value>Nach Bildern suchen, die den GPX-Track überschneiden...</value></data>
+  <data name="StepCroppingImages"><value>{0} Bild(er) zuschneiden...</value></data>
+  <data name="StepReprojecting"><value>Bild reprojizieren...</value></data>
+  <data name="StepMerging"><value>Bilder zusammenführen...</value></data>
+  <data name="StepResizing"><value>Bildgröße ändern...</value></data>
+  <data name="StepBrightening"><value>Helligkeit und Kontrast anpassen...</value></data>
+  <data name="StepSplitting"><value>In Kacheln aufteilen...</value></data>
+  <data name="StepExportingJpeg"><value>Kacheln als JPEG exportieren...</value></data>
+  <data name="StepBuildingKmz"><value>KMZ-Datei erstellen...</value></data>
+  <data name="StepCompleted"><value>Konvertierung abgeschlossen.</value></data>
+  <data name="ConsoleUsage"><value>Verwendung: TifToKmz --gpx &lt;pfad&gt; --imagesPath &lt;pfad&gt; --outputPath &lt;pfad&gt; [--config &lt;pfad&gt;]</value></data>
+  <data name="ConsoleHelpOptions" xml:space="preserve"><value>Optionen:
+  --gpx &lt;pfad&gt;         Pfad zur GPX-Trackdatei.
+  --imagesPath &lt;pfad&gt;  Pfad zum Ordner mit TIFF-Bildern.
+  --outputPath &lt;pfad&gt;  Pfad zur KMZ-Ausgabedatei.
+  --config &lt;pfad&gt;      Optionaler Pfad zu einer benutzerdefinierten appsettings.json-Konfigurationsdatei.</value></data>
+  <data name="ConsoleHelpLanguageComment"><value>Die Sprache kann in appsettings.json über die Eigenschaft „Language“ konfiguriert werden (z. B. „es“, „en“, „fr“, „de“ oder leer/„system“ für die Systemsprache).</value></data>
+  <data name="ConsoleStartingProcessing"><value>Verarbeitung wird gestartet...</value></data>
+  <data name="ConsoleGpxPath"><value>GPX-Pfad: {0}</value></data>
+  <data name="ConsoleImagesPath"><value>Bilderpfad: {0}</value></data>
+  <data name="ConsoleOutputPath"><value>Ausgabepfad: {0}</value></data>
+  <data name="ConsoleProgressFormat"><value>[Fortschritt] {0}</value></data>
+  <data name="ConsoleDetailedProgressFormat"><value>[Fortschritt] {0:F0} %</value></data>
+  <data name="ConsoleDone"><value>Fertig.</value></data>
+  <data name="ConsoleErrorDuringProcessing"><value>Fehler bei der Verarbeitung: {0}</value></data>
+  <data name="ErrorInvalidPathCharacters"><value>Der für {0} angegebene Pfad enthält ungültige Zeichen: {1}</value></data>
+</root>

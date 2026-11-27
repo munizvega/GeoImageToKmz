@@ -127,7 +127,7 @@
   --config &lt;ruta&gt;      Ruta opcional al archivo de configuración appsettings.json.</value>
   </data>
   <data name="ConsoleHelpLanguageComment" xml:space="preserve">
-    <value>El idioma se puede configurar en appsettings.json mediante la propiedad 'Language' (por ejemplo, 'es', 'en', o vacío/'system' para el idioma predeterminado del sistema).</value>
+    <value>El idioma se puede configurar en appsettings.json mediante la propiedad 'Language' (por ejemplo, 'es', 'en', 'fr', 'de', o vacío/'system' para el idioma predeterminado del sistema).</value>
   </data>
   <data name="ConsoleStartingProcessing" xml:space="preserve">
     <value>Iniciando procesamiento...</value>

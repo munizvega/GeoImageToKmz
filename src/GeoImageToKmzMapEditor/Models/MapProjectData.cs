@@ -1,9 +1,11 @@
+using TifToKmzMapEditor.Resources;
+
 namespace TifToKmzMapEditor.Models;
 
 public sealed class MapProjectData
 {
     public int Version { get; set; } = 1;
-    public string Name { get; set; } = "Proyecto";
+    public string Name { get; set; } = Strings.ProjectDefaultTitle;
     public List<MapProjectLayerData> Layers { get; set; } = new();
     public List<MapProjectTrackData> Tracks { get; set; } = new();
     public MapProjectTreeItemData? RootTreeItem { get; set; }
@@ -21,7 +23,7 @@ public enum ExportAreaMode
 public sealed class MapProjectExportData
 {
     public string OutputDirectory { get; set; } = string.Empty;
-    public string KmzFileName { get; set; } = "mapa.kmz";
+    public string KmzFileName { get; set; } = Strings.DefaultKmzName;
     public int TileSize { get; set; } = 1024;
     public int MaxTiles { get; set; } = 250;
     public double Scale { get; set; } = 1.0;

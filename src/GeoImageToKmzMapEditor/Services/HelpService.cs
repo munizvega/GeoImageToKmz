@@ -37,7 +37,13 @@ internal static class HelpService
     {
         try
         {
-            string path = Path.Combine(AppContext.BaseDirectory, "Help", "guia.html");
+            string language = Strings.Culture?.TwoLetterISOLanguageName ?? "es";
+            string guideFileName = language == "es" ? "guia.html" : $"guia.{language}.html";
+            string path = Path.Combine(AppContext.BaseDirectory, "Help", guideFileName);
+            if (!File.Exists(path))
+            {
+                path = Path.Combine(AppContext.BaseDirectory, "Help", "guia.html");
+            }
             if (!File.Exists(path))
             {
                 throw new FileNotFoundException(path);
@@ -48,15 +54,32 @@ internal static class HelpService
         }
         catch (Exception ex)
         {
-            Window dialog = new()
-            {
-                Title = Strings.GetString("MenuHelp"),
-                Width = 500,
-                SizeToContent = SizeToContent.Height,
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                Content = new TextBlock { Text = string.Format(Strings.GetString("HelpOpenError"), ex.Message), TextWrapping = Avalonia.Media.TextWrapping.Wrap, Margin = new Avalonia.Thickness(20) }
-            };
-            _ = dialog.ShowDialog(owner);
+            ShowOpenError(owner, string.Format(Strings.HelpOpenError, ex.Message));
         }
+    }
+
+    public static void OpenExternal(Window owner, string url)
+    {
+        try
+        {
+            Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+        }
+        catch (Exception ex)
+        {
+            ShowOpenError(owner, string.Format(Strings.ExternalLinkOpenError, ex.Message));
+        }
+    }
+
+    private static void ShowOpenError(Window owner, string message)
+    {
+        Window dialog = new()
+        {
+            Title = Strings.MenuHelp,
+            Width = 500,
+            SizeToContent = SizeToContent.Height,
+            WindowStartupLocation = WindowStartupLocation.CenterOwner,
+            Content = new TextBlock { Text = message, TextWrapping = Avalonia.Media.TextWrapping.Wrap, Margin = new Avalonia.Thickness(20) }
+        };
+        _ = dialog.ShowDialog(owner);
     }
 }

@@ -78,10 +78,10 @@
     <value>Ajustar mapa completo</value>
   </data>
   <data name="OpenRasterDialogTitle" xml:space="preserve">
-    <value>Seleccionar archivos ráster GeoTIFF</value>
+    <value>Seleccionar archivos ráster compatibles (incluidos GeoTIFF y JP2)</value>
   </data>
   <data name="GeoTiffFilterName" xml:space="preserve">
-    <value>Archivos GeoTIFF (*.tif, *.tiff)</value>
+    <value>Archivos ráster compatibles (*.tif, *.tiff, *.jp2 y otros formatos GDAL)</value>
   </data>
   <data name="AllFilesFilterName" xml:space="preserve">
     <value>Todos los archivos (*.*)</value>
@@ -90,7 +90,7 @@
     <value>Ningún mapa cargado</value>
   </data>
   <data name="NoMapsLoadedDescription" xml:space="preserve">
-    <value>Arrastra archivos GeoTIFF aquí o usa el botón 'Cargar mapas' del panel izquierdo.</value>
+    <value>Arrastra aquí archivos ráster compatibles con GDAL o usa el botón 'Cargar mapas' del panel izquierdo.</value>
   </data>
   <data name="StatusReady" xml:space="preserve">
     <value>Listo</value>
@@ -380,6 +380,9 @@
   <data name="ExportKmzNameWatermark" xml:space="preserve">
     <value>nombre_mapa.kmz</value>
   </data>
+  <data name="DefaultKmzName" xml:space="preserve">
+    <value>mapa.kmz</value>
+  </data>
   <data name="ExportSelectFolderDialogTitle" xml:space="preserve">
     <value>Seleccionar directorio de salida</value>
   </data>
@@ -476,6 +479,15 @@
   <data name="LanguageEnglish" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="LanguageFrench" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="LanguageGerman" xml:space="preserve">
+    <value>Deutsch</value>
+  </data>
+  <data name="MapsTracksCountFormat" xml:space="preserve">
+    <value>{0} mapa(s), {1} tracks</value>
+  </data>
   <data name="MenuDirectories" xml:space="preserve">
     <value>Directorios</value>
   </data>
@@ -568,4 +580,20 @@
   </data>
   <data name="MenuHelp" xml:space="preserve"><value>Ayuda</value></data>
   <data name="HelpOpenError" xml:space="preserve"><value>No se pudo abrir la ayuda: {0}</value></data>
+  <data name="MenuMaps" xml:space="preserve"><value>Mapas</value></data>
+  <data name="MapCountrySpain" xml:space="preserve"><value>España</value></data>
+  <data name="MapCountryFrance" xml:space="preserve"><value>Francia</value></data>
+  <data name="MenuAbout" xml:space="preserve"><value>Acerca de</value></data>
+  <data name="AboutCreator" xml:space="preserve"><value>Creada por Antonio Muñiz Vega utilizando IA.</value></data>
+  <data name="AboutDisclaimer" xml:space="preserve"><value>Esta aplicación se proporciona sin ningún tipo de garantía. Su uso es responsabilidad y riesgo del usuario.</value></data>
+  <data name="AboutLicense" xml:space="preserve"><value>Licencia de la aplicación</value></data>
+  <data name="AboutLicenseDescription" xml:space="preserve"><value>Esta aplicación se distribuye bajo la Licencia Pública General de GNU, versión 3 (GPL-3.0).</value></data>
+  <data name="AboutLicenseWebsite" xml:space="preserve"><value>Texto oficial de GNU GPL v3</value></data>
+  <data name="AboutRepository" xml:space="preserve"><value>Repositorio de la aplicación</value></data>
+  <data name="AboutRepositoryWebsite" xml:space="preserve"><value>Repositorio en GitHub</value></data>
+  <data name="AboutGdal" xml:space="preserve"><value>Librería GDAL</value></data>
+  <data name="AboutGdalDescription" xml:space="preserve"><value>Esta aplicación utiliza GDAL para el procesamiento de datos geoespaciales.</value></data>
+  <data name="AboutGdalWebsite" xml:space="preserve"><value>Web oficial de GDAL</value></data>
+  <data name="ExternalLinkOpenError" xml:space="preserve"><value>No se pudo abrir el enlace: {0}</value></data>
+  <data name="ButtonClose" xml:space="preserve"><value>Cerrar</value></data>
 </root>
