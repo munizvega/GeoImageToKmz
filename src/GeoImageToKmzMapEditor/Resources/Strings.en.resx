@@ -270,7 +270,7 @@
     <value>Open Project</value>
   </data>
   <data name="OpenProjectToolTip" xml:space="preserve">
-    <value>Open a saved map project (.ttk, .json)</value>
+    <value>Open a saved map project (.gtk)</value>
   </data>
   <data name="SaveProject" xml:space="preserve">
     <value>Save Project</value>
@@ -288,7 +288,7 @@
     <value>Project {0}</value>
   </data>
   <data name="ProjectFilterName" xml:space="preserve">
-    <value>Map Project (*.ttk)</value>
+    <value>Map Project (*.gtk)</value>
   </data>
   <data name="OpenProjectDialogTitle" xml:space="preserve">
     <value>Open Map Project</value>
@@ -566,4 +566,6 @@
   <data name="ExportSelectTrackTilesButton" xml:space="preserve">
     <value>Select tiles</value>
   </data>
+  <data name="MenuHelp" xml:space="preserve"><value>Help</value></data>
+  <data name="HelpOpenError" xml:space="preserve"><value>Could not open help: {0}</value></data>
 </root>

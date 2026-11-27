@@ -145,7 +145,7 @@ public sealed class MapProjectService : IMapProjectService
                 string? dir = Path.GetDirectoryName(project.FilePath);
                 if (!string.IsNullOrEmpty(dir))
                 {
-                    string newPath = Path.Combine(dir, $"{cleanName}.ttk");
+                    string newPath = Path.Combine(dir, $"{cleanName}.gtk");
                     if (!string.Equals(project.FilePath, newPath, StringComparison.OrdinalIgnoreCase))
                     {
                         if (File.Exists(newPath))
@@ -482,7 +482,11 @@ public sealed class MapProjectService : IMapProjectService
         string fullPath = Path.GetFullPath(filePath);
         if (string.IsNullOrEmpty(Path.GetExtension(fullPath)))
         {
-            fullPath += ".ttk";
+            fullPath += ".gtk";
+        }
+        else if (!string.Equals(Path.GetExtension(fullPath), ".gtk", StringComparison.OrdinalIgnoreCase))
+        {
+            throw new ArgumentException("Project files must use the .gtk extension", nameof(filePath));
         }
 
         target.FilePath = fullPath;
@@ -524,6 +528,11 @@ public sealed class MapProjectService : IMapProjectService
     public async Task<(GeoExtent Extent, MapProjectExportData? ExportData)> OpenProjectAsync(string filePath)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(filePath);
+        if (!string.Equals(Path.GetExtension(filePath), ".gtk", StringComparison.OrdinalIgnoreCase))
+        {
+            throw new ArgumentException("Project files must use the .gtk extension", nameof(filePath));
+        }
+
         if (!File.Exists(filePath))
         {
             throw new FileNotFoundException("Project file not found", filePath);
@@ -683,7 +692,7 @@ public sealed class MapProjectService : IMapProjectService
     {
         string autoSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TifToKmzMapEditor");
         Directory.CreateDirectory(autoSaveDir);
-        string autoSavePath = Path.Combine(autoSaveDir, "autosave.ttk");
+        string autoSavePath = Path.Combine(autoSaveDir, "autosave.gtk");
 
         if (ActiveProject != null && (ActiveProject.Layers.Count > 0 || ActiveProject.Tracks.Count > 0))
         {
@@ -741,10 +750,9 @@ public sealed class MapProjectService : IMapProjectService
         }
 
         string autoSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TifToKmzMapEditor");
-        string autoSavePath = Path.Combine(autoSaveDir, "autosave.ttk");
-        string legacyAutoSavePath = Path.Combine(autoSaveDir, "autosave.mapproj");
+        string autoSavePath = Path.Combine(autoSaveDir, "autosave.gtk");
 
-        string? pathToLoad = File.Exists(autoSavePath) ? autoSavePath : (File.Exists(legacyAutoSavePath) ? legacyAutoSavePath : null);
+        string? pathToLoad = File.Exists(autoSavePath) ? autoSavePath : null;
 
         if (pathToLoad != null)
         {
@@ -836,7 +844,7 @@ public sealed class MapProjectService : IMapProjectService
         try
         {
             string autoSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TifToKmzMapEditor");
-            string autoSavePath = Path.Combine(autoSaveDir, "autosave.ttk");
+            string autoSavePath = Path.Combine(autoSaveDir, "autosave.gtk");
             if (File.Exists(autoSavePath))
             {
                 File.Delete(autoSavePath);

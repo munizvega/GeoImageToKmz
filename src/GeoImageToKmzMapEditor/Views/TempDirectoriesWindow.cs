@@ -24,6 +24,7 @@ public sealed class TempDirectoriesWindow : Window
     {
         _tempService = tempService ?? throw new ArgumentNullException(nameof(tempService));
         _onStatusUpdated = onStatusUpdated ?? throw new ArgumentNullException(nameof(onStatusUpdated));
+        HelpService.Attach(this, "directorios-temporales");
 
         Title = Strings.TempDirectoriesTitle;
         Width = 560;

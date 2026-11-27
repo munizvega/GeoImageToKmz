@@ -10,6 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Content Include="Help/guia.html" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
         <PackageReference Include="Avalonia" Version="12.1.6" />
         <PackageReference Include="Avalonia.Desktop" Version="12.1.6" />
         <PackageReference Include="Avalonia.Themes.Fluent" Version="12.1.6" />

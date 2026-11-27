@@ -16,6 +16,7 @@ using TifToKmz.ImageTools.Splitters;
 using TifToKmz.Kmz;
 using TifToKmzMapEditor.Models;
 using TifToKmzMapEditor.Resources;
+using TifToKmzMapEditor.Services;
 using TifToKmzMapEditor.ViewModels;
 
 namespace TifToKmzMapEditor.Views;
@@ -25,10 +26,10 @@ public sealed class KmzExportWindow : Window
     private readonly MainViewModel _mainVm;
     private readonly TextBox _outputPath = new() { PlaceholderText = Strings.KmzExportOutputPathWatermark };
     private readonly ComboBox _modeComboBox = new() { HorizontalAlignment = HorizontalAlignment.Stretch };
-    private readonly StackPanel _trackPanel = new() { Spacing = 8 };
+    private readonly StackPanel _trackPanel = new() { Spacing = 8, Tag = "track" };
     private readonly ComboBox _trackComboBox = new() { HorizontalAlignment = HorizontalAlignment.Stretch };
     private readonly TextBox _marginTextBox = new() { Text = "100", PlaceholderText = "100", Width = 45, HorizontalAlignment = HorizontalAlignment.Right, FontSize = 12 };
-    private readonly StackPanel _tilesPanel = new() { Spacing = 8 };
+    private readonly StackPanel _tilesPanel = new() { Spacing = 8, Tag = "teselas" };
     private readonly TextBlock _tilesCounterText = new() { FontWeight = FontWeight.Bold, FontSize = 13, VerticalAlignment = VerticalAlignment.Center, Foreground = new SolidColorBrush(Color.FromRgb(0, 120, 215)) };
     private readonly NumericUpDown _tileSizeNumeric = new() { Value = 1024, Minimum = 256, Maximum = 4096, Increment = 256, ShowButtonSpinner = false, Width = 140 };
     private readonly NumericUpDown _jpegQualityNumeric = new() { Value = 85, Minimum = 10, Maximum = 100, Increment = 5, ShowButtonSpinner = false, Width = 140 };
@@ -69,6 +70,7 @@ public sealed class KmzExportWindow : Window
     public KmzExportWindow(MainViewModel mainVm)
     {
         _mainVm = mainVm ?? throw new ArgumentNullException(nameof(mainVm));
+        HelpService.Attach(this, "exportacion");
 
         Title = Strings.KmzExportTitle;
         Width = 520;

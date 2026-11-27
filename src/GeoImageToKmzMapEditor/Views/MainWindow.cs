@@ -39,6 +39,8 @@ public sealed class MainWindow : Window
 
         _mapControl = new MapViewportControl { ViewModel = _viewModel };
 
+        HelpService.Attach(this, "inicio");
+
         AddHandler(DragDrop.DropEvent, OnFileDrop);
         AddHandler(DragDrop.DragOverEvent, OnDragOver);
 
@@ -128,6 +130,7 @@ public sealed class MainWindow : Window
 
         // Left Panel (Tree and Search)
         Control leftPanel = CreateLeftPanel();
+        leftPanel.Tag = "proyectos";
         Grid.SetColumn(leftPanel, 0);
         mainGrid.Children.Add(leftPanel);
 
@@ -142,7 +145,7 @@ public sealed class MainWindow : Window
         mainGrid.Children.Add(splitter1);
 
         // Middle Panel (Map Editor Canvas with Floating Zoom Controls)
-        Panel middlePanel = new();
+        Panel middlePanel = new() { Tag = "mapa" };
         middlePanel.Children.Add(_mapControl);
 
         StackPanel zoomControls = new()
@@ -254,6 +257,7 @@ public sealed class MainWindow : Window
 
         // Right Panel (Export Options)
         Control rightPanel = CreateExportPanel();
+        rightPanel.Tag = "configuracion-exportacion";
         Grid.SetColumn(rightPanel, 4);
         mainGrid.Children.Add(rightPanel);
 
@@ -407,6 +411,11 @@ public sealed class MainWindow : Window
         optionsMenu.Items.Add(directoriesItem);
 
         menu.Items.Add(optionsMenu);
+        MenuItem helpMenu = new() { Header = Strings.GetString("MenuHelp") };
+        MenuItem helpItem = new() { Header = Strings.GetString("MenuHelp"), InputGesture = new KeyGesture(Key.F1) };
+        helpItem.Click += (_, _) => HelpService.Open(this, "inicio");
+        helpMenu.Items.Add(helpItem);
+        menu.Items.Add(helpMenu);
         return menu;
     }
 
@@ -986,7 +995,7 @@ public sealed class MainWindow : Window
         areaCardContent.Children.Add(modeComboBox);
 
         // Subpanel for Track Contour
-        StackPanel trackPanel = new() { Spacing = 6 };
+        StackPanel trackPanel = new() { Spacing = 6, Tag = "track" };
         trackPanel.IsVisible = _viewModel.Export.IsTrackMode;
 
         ComboBox trackComboBox = new()
@@ -1029,7 +1038,7 @@ public sealed class MainWindow : Window
         areaCardContent.Children.Add(trackPanel);
 
         // Subpanel for Selected Tiles
-        StackPanel tilesPanel = new() { Spacing = 6 };
+        StackPanel tilesPanel = new() { Spacing = 6, Tag = "teselas" };
         tilesPanel.IsVisible = _viewModel.Export.IsSelectedTilesMode;
 
         DockPanel counterDock = new() { HorizontalAlignment = HorizontalAlignment.Stretch, Margin = new Thickness(0, 2, 0, 0) };
@@ -1802,7 +1811,7 @@ public sealed class MainWindow : Window
             AllowMultiple = false,
             FileTypeFilter =
             [
-                new FilePickerFileType(Strings.ProjectFilterName) { Patterns = ["*.ttk"] }
+                new FilePickerFileType(Strings.ProjectFilterName) { Patterns = ["*.gtk"] }
             ]
         });
 
@@ -1828,11 +1837,11 @@ public sealed class MainWindow : Window
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
             Title = Strings.SaveProjectDialogTitle,
-            DefaultExtension = "ttk",
+            DefaultExtension = "gtk",
             SuggestedFileName = _viewModel.ProjectName,
             FileTypeChoices =
             [
-                new FilePickerFileType(Strings.ProjectFilterName) { Patterns = ["*.ttk"] }
+                new FilePickerFileType(Strings.ProjectFilterName) { Patterns = ["*.gtk"] }
             ]
         });
 
@@ -1870,7 +1879,7 @@ public sealed class MainWindow : Window
 
         List<string> paths = files.Select(f => f.Path.LocalPath).ToList();
         List<string> projectFiles = paths.Where(p =>
-            p.EndsWith(".ttk", StringComparison.OrdinalIgnoreCase)).ToList();
+            p.EndsWith(".gtk", StringComparison.OrdinalIgnoreCase)).ToList();
 
         if (projectFiles.Count > 0)
         {

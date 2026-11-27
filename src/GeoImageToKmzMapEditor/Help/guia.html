@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía de GeoImageToKmz Map Editor</title>
+  <style>
+    body { font: 1rem/1.6 system-ui, sans-serif; color: #202b38; max-width: 56rem; margin: auto; padding: 1rem; }
+    h1, h2, h3 { line-height: 1.25; color: #16446c; }
+    nav, .aviso { background: #edf4fa; padding: 1rem; border-radius: .4rem; }
+    code { background: #edf0f2; padding: .1em .25em; }
+    a { color: #005a9c; }
+    li { margin: .3rem 0; }
+    section { scroll-margin-top: 1rem; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Guía de GeoImageToKmz Map Editor</h1>
+  <p>Prepare mapas, seleccione una zona y genere un KMZ para su visor o dispositivo compatible.</p>
+</header>
+<nav aria-label="Contenido">
+  <strong>Contenido</strong>
+  <ul>
+    <li><a href="#inicio">Primeros pasos</a></li>
+      <li><a href="#GarminCustomMaps">Garmin custom maps</a></li>
+    <li><a href="#interfaz">Interfaz y navegación</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#mapas-tracks">Mapas y tracks</a></li>
+    <li><a href="#exportacion">Exportación a KMZ</a></li>
+    <li><a href="#teselas">Selección de teselas</a></li>
+    <li><a href="#teselas-pequenas">Flujo con teselas pequeñas</a></li>
+    <li><a href="#teselas-grandes">Flujo con teselas grandes</a></li>
+    <li><a href="#track">Selección mediante track</a></li>
+    <li><a href="#ajustes-salida">Ajustes de salida y brillo</a></li>
+    <li><a href="#directorios">Idioma y directorios temporales</a></li>
+    <li><a href="#problemas">Resolución de problemas</a></li>
+  </ul>
+</nav>
+<main>
+  <section id="inicio">
+    <h2>Primeros pasos</h2>
+    <ol>
+      <li>Abra el editor y cargue uno o varios GeoTIFF georreferenciados con <strong>Cargar mapas</strong> o arrastrándolos a la ventana.</li>
+      <li>Si desea utilizar una ruta, cargue un archivo GPX con <strong>Cargar tracks</strong>. Esto le ayudará a crear un mapa alrededor del track.</li>
+      <li>Compruebe las capas visibles, seleccione el área y los ajustes de exportación, y elija el destino del KMZ.</li>
+      <li>Pulse <strong>Exportar a KMZ</strong>, espere la confirmación y compruebe el resultado en el visor o dispositivo de destino.</li>
+    </ol>
+    <p>En Windows, inicie la aplicación desde su archivo ejecutable <code>.exe</code>. En Linux ejecuta ./GeoImageToKmz</p>
+    <!-- Captura futura: ventana inicial y carga de mapas. -->
+  </section>
+    <section id="GarminCustomMaps">
+        <h2>Garmin Custom Maps</h2>
+        <p>Esta aplicación es ideal para generar maps custom para Garmin (formato KMZ). Dadas las restricciones de cada dispositivo, crearlos de forma manual puede resultar muy tedioso.</p>
+        <p>Dado que cada dispositivo es diferente, consulta las restricciones de tu dispositivo y configura las opciones según dichas restricciones</p>
+        <p>Algo que te puede ayudar es la aplicación de Garmin BaseCamp. Si intentas copiar un mapa con más teselas de las permitidas, te dará un error y te dirá que se superó el límite permitido.</p>
+        <p>Esta aplicación se ha probado con un Garmin Edge 850, cuyo límite de teselas es 250. La información sobre la compatibilidad y límites no está clara para los dispositivos, tal vez necesites probar los límites con tu dispositivo.</p>
+        <p>Como hay límites en el tamaño y número de teselas, la calidad y resolución de los mapas viene dada por el número de teselas. A mayor número de teselas se podrá tener un mapa mayor o de mayor calidad. 250 teselas en un mapa de 1 kilómetro cuadrado tendrá más calidad que 100 teselas en un mapa de 1 kilómetro cuadrado. Intenta seleccionar el mayor número de teselas posible para tener mayor calidad. Puedes jugar con el tamaño de teselas, seleccionando teselas muy pequeñas para el track a seguir y luego, mediante zoom, seleccionar teselas más grandes (perdiendo calidad) para los contornos o posibles rutas de escape.</p>
+    </section>
+  <section id="interfaz">
+    <span id="mapa"></span>
+    <h2>Interfaz y navegación</h2>
+    <p>La ventana reúne el árbol de proyectos, mapas y tracks, el visor central y el panel <strong>Opciones de exportado</strong>. La barra de estado muestra información como coordenadas, carga y errores.</p>
+    <p>Arrastre sobre el mapa para desplazarse; use la rueda o los botones <strong>+</strong> y <strong>−</strong> para acercar o alejar y <strong>Ajustar mapa completo</strong> para volver a la extensión completa. Las coordenadas mostradas dependen de la proyección del mapa.</p>
+    <!-- Captura futura: visor, controles de navegación y paneles. -->
+  </section>
+  <section id="proyectos">
+    <h2>Proyectos</h2>
+    <p>En <strong>Archivo</strong> puede crear, abrir, guardar o guardar como un proyecto. Los proyectos utilizan la extensión <code>.gtk</code>. El árbol permite cambiar el nombre o cerrar elementos. Al cerrar con cambios pendientes, el editor pregunta si desea guardarlos.</p>
+    <p>El proyecto conserva referencias a los archivos y opciones de trabajo, incluidas las teselas seleccionadas. Guarde también los GeoTIFF y GPX originales y mantenga sus rutas disponibles: guardar el proyecto no equivale a exportar un KMZ.</p>
+  </section>
+  <section id="mapas-tracks">
+    <h2>Mapas y tracks</h2>
+    <p>Use <strong>Cargar mapas</strong> para seleccionar archivos <code>.tif</code> o <code>.tiff</code> y <strong>Cargar tracks</strong> para archivos <code>.gpx</code>. El árbol permite buscar, cambiar la visibilidad y cerrar elementos; su menú contextual ofrece acciones como abrir la carpeta contenedora.</p>
+    <p>Las capas ráster visibles son las entradas de la exportación. Oculte las que no desee incluir y compruebe que los mapas y el track cubran la misma zona. El GPX sirve para visualizar y seleccionar el área; no suponga que el track se exporta como una línea independiente en el KMZ.</p>
+    <!-- Captura futura: árbol de mapas y tracks. -->
+  </section>
+  <section id="exportacion">
+    <span id="configuracion-exportacion"></span>
+    <h2>Exportación a KMZ</h2>
+    <p>En <strong>Selección de área a exportar</strong> elija:</p>
+    <ul>
+      <li><strong>Mapas seleccionados</strong>: procesa las capas ráster visibles completas.</li>
+      <li><strong>Teselas seleccionadas</strong>: procesa las zonas rectangulares elegidas en el visor.</li>
+      <li><strong>Reducir mapa al contorno del track</strong>: usa el rectángulo que engloba el track más el margen indicado, no una máscara que siga exactamente la línea.</li>
+    </ul>
+    <p>En el panel de exportación indique el directorio y el nombre del archivo; se añade <code>.kmz</code> si falta. Pulse <strong>Exportar a KMZ</strong> y observe el progreso total y por paso. Durante el proceso puede solicitar <strong>Cancelar</strong>; espere el mensaje de cancelación antes de continuar.</p>
+    <!-- Captura futura: opciones de exportación y progreso. -->
+  </section>
+  <section id="teselas">
+    <h2>Selección de teselas</h2>
+    <p>Seleccione <strong>Teselas seleccionadas</strong> y, en modo navegación, haga clic en una celda del mapa para añadirla; haga clic dentro de una tesela seleccionada para quitarla. Arrastre para desplazarse. El contador indica seleccionadas/máximo; al alcanzar el máximo no se añaden más manualmente.</p>
+    <p>La cuadrícula representa extensiones geográficas: sin una selección fijada, el zoom determina su tamaño sobre el terreno. <strong>Fijar tamaño de las teselas</strong> reutiliza las dimensiones geográficas de la primera selección para las siguientes, incluso al cambiar el zoom. Desactívelo para elegir nuevas dimensiones con otro zoom; las selecciones anteriores permanecen.</p>
+    <p><strong>Limpiar teselas</strong> elimina toda la selección. <strong>Optimizar teselas</strong> subdivide las seleccionadas de forma uniforme aprovechando el máximo disponible; no fusiona teselas ni aumenta el máximo. Si no hay margen suficiente, puede no cambiar nada.</p>
+    <p>El tamaño geográfico de estas selecciones no es lo mismo que <strong>Tamaño de tesela (px)</strong>, que configura los píxeles de salida.</p>
+    <!-- Captura futura: cuadrícula, contador y controles de teselas. -->
+  </section>
+  <section id="teselas-pequenas">
+    <h2>Flujo con teselas pequeñas</h2>
+    <ol>
+      <li>Seleccione el modo de teselas, limpie la selección si es necesario y acerque el mapa hasta obtener celdas que cubran áreas pequeñas.</li>
+      <li>Seleccione las celdas deseadas. Para mantener ese tamaño geográfico mientras navega, active <strong>Fijar tamaño de las teselas</strong> tras seleccionar la primera.</li>
+      <li>Revise la cobertura y el contador; aumente el máximo permitido si hace falta o reduzca el área. Configure destino y salida y exporte.</li>
+    </ol>
+    <p>Las áreas pequeñas permiten una selección más precisa, pero pueden requerir más teselas. Compruebe los límites del dispositivo de destino.</p>
+    <p>Con el mismo tamaño de salida en píxeles, una tesela que cubre menos terreno puede conservar más detalle, siempre que la imagen original tenga resolución suficiente. Por ejemplo, seleccione primero teselas pequeñas que toquen el track; después desactive la fijación, aleje el mapa y añada teselas mayores alrededor, con menor detalle, para ampliar la cobertura.</p>
+  </section>
+  <section id="teselas-grandes">
+    <h2>Flujo con teselas grandes</h2>
+    <ol>
+      <li>Limpie la selección y aleje el mapa antes de seleccionar, para que cada celda abarque una zona mayor. Fije el tamaño tras la primera si quiere conservarlo al cambiar de zoom.</li>
+      <li>Seleccione las zonas necesarias y compruebe que cubren el recorrido o territorio previsto. Una celda grande puede incluir terreno que no necesita.</li>
+      <li>Si desea subdividir esas zonas sin cambiar su cobertura, pulse <strong>Optimizar teselas</strong> y revise el contador. Después ajuste la salida y exporte.</li>
+    </ol>
+    <p>Para volver a seleccionar con otro tamaño, limpie las teselas o desactive la fijación y cambie el zoom. La optimización crea más selecciones pequeñas; no garantiza una cantidad concreta.</p>
+  </section>
+  <section id="track">
+    <h2>Selección mediante track</h2>
+    <p>Cargue un GPX y elija <strong>Reducir mapa al contorno del track</strong>, el track y la <strong>Distancia mínima al track</strong> en metros. Se exporta el rectángulo envolvente ampliado por ese margen, por lo que puede incluir áreas alejadas del recorrido.</p>
+    <p>Como alternativa, en <strong>Teselas seleccionadas</strong> active <strong>Seleccionar teselas del track</strong>, elija el track y el margen, y pulse el botón <strong>Seleccionar teselas</strong>. Se seleccionan celdas próximas al recorrido. Esta acción reemplaza la selección anterior; revise el mapa y el contador: al llegar al máximo se deja de añadir teselas y puede quedar parte del track sin cubrir.</p>
+    <p>El tamaño de la cuadrícula depende del zoom o, si está fijado y ya existe una selección, de su primera tesela. Ajuste zoom, margen y máximo y repita la selección si necesita otra cobertura.</p>
+    <!-- Captura futura: selección de teselas siguiendo un track. -->
+  </section>
+  <section id="ajustes-salida">
+    <h2>Ajustes de salida y brillo</h2>
+    <ul>
+      <li><strong>Tamaño de tesela (px)</strong>: entre 256 y 4096; por defecto 1024. Para Garmin Custom Maps, 1024 × 1024 píxeles es una referencia habitual; imágenes mayores pueden perder resolución o no ser compatibles según el dispositivo.</li>
+      <li><strong>Máximo de teselas</strong>: entre 1 y 1000; por defecto 250. Limita la selección y se utiliza al generar el KMZ. Garmin Custom Maps tiene límites que dependen del modelo: algunos admiten 100 teselas y otros 500, contando también otros mapas instalados. Consulte las especificaciones de su dispositivo; 250 no garantiza la compatibilidad.</li>
+      <li><strong>Calidad JPEG (%)</strong>: entre 1 y 100 en el panel principal; valores mayores suelen conservar más detalle a costa de más espacio.</li>
+      <li><strong>Aclarar las imágenes antes de generar el KMZ</strong>: activa gamma, brillo y contraste. Gamma y contraste admiten 0,1–10; brillo, 0–100 %. Una gamma superior a 1 aclara los tonos medios; el brillo levanta las zonas oscuras y el contraste aumenta la diferencia entre claros y oscuros.</li>
+    </ul>
+    <p>El tratamiento de imágenes puede ser lento y necesitar mucha memoria y disco duro en el proceso (aunque el resultado final sean unos pocos megas). Como consejo, pruebe una zona pequeña y revise legibilidad y tamaño antes de generar una zona extensa. Los ajustes guardados en el proyecto pueden cambiar los valores iniciales.</p>    
+  </section>
+  <section id="directorios">
+    <span id="directorios-temporales"></span>
+    <h2>Idioma y directorios temporales</h2>
+    <p>En <strong>Opciones → Idioma</strong> seleccione español o inglés. En <strong>Opciones → Directorios</strong> consulte la ruta temporal efectiva y el espacio ocupado. Escriba o examine una carpeta personalizada y pulse <strong>Guardar</strong>; <strong>Restablecer predeterminado</strong> vuelve a la carpeta temporal de la aplicación.</p>
+    <p class="aviso"><strong>Precaución:</strong> <strong>Vaciar directorio temporal</strong> elimina archivos y carpetas del directorio temporal actual. Utilice una carpeta dedicada, no una que contenga datos personales, y no la vacíe durante un procesamiento.</p>
+    <!-- Captura futura: configuración de directorios temporales. -->
+  </section>
+  <section id="problemas">
+    <h2>Resolución de problemas</h2>
+    <ul>
+      <li><strong>No hay capas visibles:</strong> cargue un GeoTIFF y active su visibilidad.</li>
+      <li><strong>No hay teselas o track seleccionado:</strong> seleccione al menos una celda, o cargue y elija un GPX según el modo.</li>
+      <li><strong>Falta parte del recorrido:</strong> revise la cobertura en el visor y el contador; cambie el zoom, el margen o el máximo y vuelva a seleccionar.</li>
+      <li><strong>No se puede cargar o exportar:</strong> compruebe que existan los archivos, su georreferencia, los permisos, la ruta de salida, el espacio temporal y el mensaje de error. Use un directorio temporal con espacio suficiente.</li>
+      <li><strong>El KMZ no se ve como esperaba:</strong> compruebe las capas visibles, el área y el sistema de referencia; pruebe tamaño, calidad y brillo con el visor o dispositivo final.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

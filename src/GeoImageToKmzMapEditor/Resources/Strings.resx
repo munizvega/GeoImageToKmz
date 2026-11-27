@@ -270,7 +270,7 @@
     <value>Abrir proyecto</value>
   </data>
   <data name="OpenProjectToolTip" xml:space="preserve">
-    <value>Abrir un proyecto de mapas guardado (.ttk, .json)</value>
+    <value>Abrir un proyecto de mapas guardado (.gtk)</value>
   </data>
   <data name="SaveProject" xml:space="preserve">
     <value>Guardar proyecto</value>
@@ -288,7 +288,7 @@
     <value>Proyecto {0}</value>
   </data>
   <data name="ProjectFilterName" xml:space="preserve">
-    <value>Proyecto de mapas (*.ttk)</value>
+    <value>Proyecto de mapas (*.gtk)</value>
   </data>
   <data name="OpenProjectDialogTitle" xml:space="preserve">
     <value>Abrir proyecto de mapas</value>
@@ -566,4 +566,6 @@
   <data name="ExportSelectTrackTilesButton" xml:space="preserve">
     <value>Seleccionar teselas</value>
   </data>
+  <data name="MenuHelp" xml:space="preserve"><value>Ayuda</value></data>
+  <data name="HelpOpenError" xml:space="preserve"><value>No se pudo abrir la ayuda: {0}</value></data>
 </root>
