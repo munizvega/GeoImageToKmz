@@ -12,6 +12,7 @@
     a { color: #005a9c; }
     li { margin: .3rem 0; }
     section { scroll-margin-top: 1rem; }
+    img { max-width: 100%; height: auto; }
   </style>
 </head>
 <body>
@@ -48,6 +49,7 @@
       <li>Klicken Sie auf <strong>Als KMZ exportieren</strong>, warten Sie auf die Bestätigung und prüfen Sie das Ergebnis im Zielprogramm oder auf dem Zielgerät.</li>
     </ol>
     <p>Starten Sie die Anwendung unter Windows über die <code>.exe</code>-Datei. Führen Sie sie unter Linux mit <code>./GeoImageToKmzMapEditor</code> aus.</p>
+    <img src="inicio.png" alt="Startbildschirm von GeoImageToKmz Map Editor">
   </section>
   <section id="GarminCustomMaps">
     <h2>Garmin Custom Maps</h2>
@@ -56,6 +58,7 @@
     <p>Garmin BaseCamp kann dabei helfen: Wenn Sie versuchen, eine Karte mit mehr als der zulässigen Kachelanzahl zu kopieren, wird ein Fehler angezeigt und auf die überschrittene Grenze hingewiesen.</p>
     <p>Die Anwendung wurde mit einem Garmin Edge 850 getestet, dessen Grenze bei 250 Kacheln liegt. Informationen zur Kompatibilität und zu den Grenzwerten sind nicht für alle Geräte eindeutig; möglicherweise müssen Sie die Grenzen Ihres Geräts selbst testen.</p>
     <p>Da Kachelgröße und -anzahl begrenzt sind, hängen Qualität und Auflösung der Karte von der Kachelanzahl ab. Mehr Kacheln ermöglichen eine größere oder detailliertere Karte: 250 Kacheln auf einem Quadratkilometer liefern mehr Details als 100 Kacheln auf derselben Fläche. Verwenden Sie möglichst viele Kacheln, die Ihr Gerät erlaubt. Sie können entlang der Route sehr kleine Kacheln auswählen und anschließend herauszoomen, um größere Kacheln mit weniger Details für das Umfeld oder mögliche Ausweichrouten hinzuzufügen.</p>
+    <img src="teselasvarias.png" alt="Mehrere auf der Karte ausgewählte Kacheln">
   </section>
   <section id="interfaz">
     <span id="mapa"></span>
@@ -115,6 +118,7 @@
     <p>Laden Sie eine GPX-Datei und wählen Sie <strong>Karte auf den Track-Umriss zuschneiden</strong>, den Track und den <strong>Mindestabstand zum Track</strong> in Metern aus. Der Export verwendet das um den Rand vergrößerte Begrenzungsrechteck des Tracks und kann deshalb auch weit von der Route entfernte Bereiche enthalten.</p>
     <p>Alternativ können Sie unter <strong>Ausgewählte Kacheln</strong> die Option <strong>Kacheln entlang des Tracks auswählen</strong> aktivieren, den Track und den Rand festlegen und auf <strong>Kacheln auswählen</strong> klicken. Dabei werden Zellen in der Nähe der Route ausgewählt. Die bisherige Auswahl wird ersetzt. Prüfen Sie Karte und Zähler: Sobald das Maximum erreicht ist, werden keine weiteren Kacheln hinzugefügt und ein Teil des Tracks kann unbedeckt bleiben.</p>
     <p>Die Rastergröße hängt von der Zoomstufe oder – bei fixierter Größe und vorhandener Auswahl – von der ersten ausgewählten Kachel ab. Passen Sie Zoom, Rand und Maximum an und wiederholen Sie die Auswahl, wenn Sie eine andere Abdeckung benötigen.</p>
+    <img src="seleccion.png" alt="Kachelauswahl entlang eines Tracks">
   </section>
   <section id="ajustes-salida">
     <h2>Ausgabe- und Helligkeitseinstellungen</h2>

@@ -12,6 +12,7 @@
     a { color: #005a9c; }
     li { margin: .3rem 0; }
     section { scroll-margin-top: 1rem; }
+    img { max-width: 100%; height: auto; }
   </style>
 </head>
 <body>
@@ -48,6 +49,7 @@
       <li>Cliquez sur <strong>Exporter au format KMZ</strong>, attendez la confirmation et vérifiez le résultat dans la visionneuse ou sur l'appareil cible.</li>
     </ol>
     <p>Sous Windows, lancez l'application à partir de son fichier <code>.exe</code>. Sous Linux, exécutez <code>./GeoImageToKmzMapEditor</code>.</p>
+    <img src="inicio.png" alt="Écran de démarrage de GeoImageToKmz Map Editor">
   </section>
   <section id="GarminCustomMaps">
     <h2>Garmin Custom Maps</h2>
@@ -56,6 +58,7 @@
     <p>Garmin BaseCamp peut vous aider : si vous essayez de copier une carte contenant trop de tuiles, le logiciel signale une erreur et indique que la limite est dépassée.</p>
     <p>L'application a été testée avec un Garmin Edge 850, dont la limite est de 250 tuiles. Les informations de compatibilité et les limites ne sont pas claires pour tous les appareils ; vous devrez peut-être tester les limites du vôtre.</p>
     <p>Le nombre et la taille des tuiles étant limités, la qualité et la résolution de la carte dépendent du nombre de tuiles. Un plus grand nombre de tuiles peut couvrir une zone plus vaste ou fournir davantage de détails : 250 tuiles sur un kilomètre carré offrent plus de détails que 100 tuiles sur la même zone. Essayez d'utiliser autant de tuiles que votre appareil le permet. Vous pouvez sélectionner de très petites tuiles le long du parcours, puis dézoomer et ajouter autour des tuiles plus grandes et moins détaillées pour couvrir les environs ou d'éventuels itinéraires de repli.</p>
+    <img src="teselasvarias.png" alt="Plusieurs tuiles sélectionnées sur la carte">
   </section>
   <section id="interfaz">
     <span id="mapa"></span>
@@ -115,6 +118,7 @@
     <p>Chargez un GPX et choisissez <strong>Réduire la carte au contour du tracé</strong>, le tracé et la <strong>Distance minimale au tracé</strong> en mètres. L'exportation utilise le rectangle englobant le tracé, élargi de cette marge ; elle peut donc inclure des zones éloignées de l'itinéraire.</p>
     <p>Vous pouvez aussi, dans <strong>Tuiles sélectionnées</strong>, activer <strong>Sélectionner les tuiles du tracé</strong>, choisir le tracé et la marge, puis cliquer sur <strong>Sélectionner les tuiles</strong>. Les cellules proches du parcours sont sélectionnées. Cette action remplace la sélection précédente ; vérifiez la carte et le compteur. Lorsque le maximum est atteint, aucune tuile supplémentaire n'est ajoutée et une partie du tracé peut rester non couverte.</p>
     <p>La taille de la grille dépend du zoom ou, si elle est verrouillée et qu'une sélection existe déjà, de la première tuile sélectionnée. Modifiez le zoom, la marge et le maximum, puis relancez la sélection si vous souhaitez une autre couverture.</p>
+    <img src="seleccion.png" alt="Sélection de tuiles le long d'un tracé">
   </section>
   <section id="ajustes-salida">
     <h2>Paramètres de sortie et luminosité</h2>
