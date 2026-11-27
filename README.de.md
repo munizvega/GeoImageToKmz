@@ -32,7 +32,7 @@ Bereiten Sie Karten vor, wählen Sie einen Bereich aus und erstellen Sie eine KM
 
 Starten Sie die Anwendung unter Windows über die `.exe`-Datei. Führen Sie sie unter Linux mit `./GeoImageToKmzMapEditor` aus.
 
-![Startbildschirm von GeoImageToKmz Map Editor](GeoImageToKmzMapEditor/Help/inicio.png)
+![Startbildschirm von GeoImageToKmz Map Editor](src/GeoImageToKmzMapEditor/Help/inicio.png)
 
 <a id="GarminCustomMaps"></a>
 ## Garmin Custom Maps
@@ -43,7 +43,7 @@ Garmin BaseCamp kann dabei helfen: Wenn Sie versuchen, eine Karte mit mehr als d
 
 Da Kachelgröße und -anzahl begrenzt sind, hängen Qualität und Auflösung der Karte von der Kachelanzahl ab. Mehr Kacheln ermöglichen eine größere oder detailliertere Karte: 250 Kacheln auf einem Quadratkilometer liefern mehr Details als 100 Kacheln auf derselben Fläche. Verwenden Sie möglichst viele Kacheln, die Ihr Gerät erlaubt. Sie können entlang der Route sehr kleine Kacheln auswählen und anschließend herauszoomen, um größere Kacheln mit weniger Details für das Umfeld oder mögliche Ausweichrouten hinzuzufügen.
 
-![Mehrere auf der Karte ausgewählte Kacheln](GeoImageToKmzMapEditor/Help/teselasvarias.png)
+![Mehrere auf der Karte ausgewählte Kacheln](src/GeoImageToKmzMapEditor/Help/teselasvarias.png)
 
 <a id="interfaz"></a>
 ## Oberfläche und Navigation
@@ -111,7 +111,7 @@ Laden Sie eine GPX-Datei und wählen Sie **Karte auf den Track-Umriss zuschneide
 
 Alternativ können Sie unter **Ausgewählte Kacheln** die Option **Kacheln entlang des Tracks auswählen** aktivieren, den Track und den Rand festlegen und auf **Kacheln auswählen** klicken. Dabei werden Zellen in der Nähe der Route ausgewählt. Die bisherige Auswahl wird ersetzt. Prüfen Sie Karte und Zähler: Sobald das Maximum erreicht ist, werden keine weiteren Kacheln hinzugefügt und ein Teil des Tracks kann unbedeckt bleiben. Passen Sie Zoom, Rand und Maximum an und wiederholen Sie die Auswahl, wenn Sie eine andere Abdeckung benötigen.
 
-![Kachelauswahl entlang eines Tracks](GeoImageToKmzMapEditor/Help/seleccion.png)
+![Kachelauswahl entlang eines Tracks](src/GeoImageToKmzMapEditor/Help/seleccion.png)
 
 <a id="ajustes-salida"></a>
 ## Ausgabe- und Helligkeitseinstellungen

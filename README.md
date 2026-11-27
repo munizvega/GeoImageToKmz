@@ -32,7 +32,7 @@ Prepare mapas, seleccione una zona y genere un KMZ para su visor o dispositivo c
 
 En Windows, inicie la aplicación desde su archivo `.exe`. En Linux, ejecute `./GeoImageToKmzMapEditor`.
 
-![Inicio de GeoImageToKmz Map Editor](GeoImageToKmzMapEditor/Help/inicio.png)
+![Inicio de GeoImageToKmz Map Editor](src/GeoImageToKmzMapEditor/Help/inicio.png)
 
 <a id="GarminCustomMaps"></a>
 ## Garmin Custom Maps
@@ -43,7 +43,7 @@ Garmin BaseCamp puede ayudar: si intenta copiar un mapa con más teselas de las 
 
 Como hay límites en el tamaño y número de teselas, la calidad y resolución dependen de cuántas utilice. Más teselas permiten cubrir un área mayor o con más detalle: 250 teselas para un kilómetro cuadrado ofrecen más detalle que 100 para la misma área. Intente usar el máximo permitido. Puede seleccionar teselas pequeñas a lo largo del track y, después, alejar el zoom y añadir teselas mayores, con menos detalle, para los alrededores o posibles rutas de escape.
 
-![Varias teselas seleccionadas en el mapa](GeoImageToKmzMapEditor/Help/teselasvarias.png)
+![Varias teselas seleccionadas en el mapa](src/GeoImageToKmzMapEditor/Help/teselasvarias.png)
 
 <a id="interfaz"></a>
 ## Interfaz y navegación
@@ -111,7 +111,7 @@ Cargue un GPX y elija **Reducir mapa al contorno del track**, el track y la **Di
 
 Como alternativa, en **Teselas seleccionadas** active **Seleccionar teselas del track**, elija el track y el margen, y pulse **Seleccionar teselas**. Se seleccionan celdas próximas al recorrido. Esta acción reemplaza la selección anterior; revise el mapa y el contador: al llegar al máximo se deja de añadir teselas y puede quedar parte del track sin cubrir. Ajuste zoom, margen y máximo y repita la selección si necesita otra cobertura.
 
-![Selección de teselas mediante un track](GeoImageToKmzMapEditor/Help/seleccion.png)
+![Selección de teselas mediante un track](src/GeoImageToKmzMapEditor/Help/seleccion.png)
 
 <a id="ajustes-salida"></a>
 ## Ajustes de salida y brillo

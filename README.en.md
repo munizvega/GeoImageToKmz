@@ -32,7 +32,7 @@ Prepare maps, select an area, and create a KMZ for your viewer or compatible dev
 
 On Windows, start the application from its `.exe` file. On Linux, run `./GeoImageToKmzMapEditor`.
 
-![GeoImageToKmz Map Editor start screen](GeoImageToKmzMapEditor/Help/inicio.png)
+![GeoImageToKmz Map Editor start screen](src/GeoImageToKmzMapEditor/Help/inicio.png)
 
 <a id="GarminCustomMaps"></a>
 ## Garmin Custom Maps
@@ -43,7 +43,7 @@ Garmin BaseCamp can help: if you try to copy a map with more tiles than allowed,
 
 Because tile size and count are limited, map quality and resolution depend on the number of tiles. More tiles can provide a larger or more detailed map: 250 tiles covering one square kilometre provide more detail than 100 tiles covering the same area. Try to use as many tiles as your device allows. You can select very small tiles along the route, then zoom out and add larger, lower-detail tiles around them for the surrounding area or possible escape routes.
 
-![Multiple tiles selected on the map](GeoImageToKmzMapEditor/Help/teselasvarias.png)
+![Multiple tiles selected on the map](src/GeoImageToKmzMapEditor/Help/teselasvarias.png)
 
 <a id="interfaz"></a>
 ## Interface and navigation
@@ -111,7 +111,7 @@ Load a GPX file and choose **Crop map to track contour**, the track, and the **M
 
 Alternatively, in **Selected tiles**, enable **Select tiles along track**, choose the track and margin, then click **Select tiles**. Nearby cells are selected. This replaces the previous selection; review the map and counter. Once the maximum is reached, no more tiles are added, so part of the track may remain uncovered. Adjust zoom, margin, and maximum, then repeat the selection if you need different coverage.
 
-![Selecting tiles along a track](GeoImageToKmzMapEditor/Help/seleccion.png)
+![Selecting tiles along a track](src/GeoImageToKmzMapEditor/Help/seleccion.png)
 
 <a id="ajustes-salida"></a>
 ## Output and brightness settings

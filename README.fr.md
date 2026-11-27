@@ -32,7 +32,7 @@ Préparez des cartes, sélectionnez une zone et créez un fichier KMZ pour votre
 
 Sous Windows, lancez l'application à partir de son fichier `.exe`. Sous Linux, exécutez `./GeoImageToKmzMapEditor`.
 
-![Écran de démarrage de GeoImageToKmz Map Editor](GeoImageToKmzMapEditor/Help/inicio.png)
+![Écran de démarrage de GeoImageToKmz Map Editor](src/GeoImageToKmzMapEditor/Help/inicio.png)
 
 <a id="GarminCustomMaps"></a>
 ## Garmin Custom Maps
@@ -43,7 +43,7 @@ Garmin BaseCamp peut vous aider : si vous essayez de copier une carte contenant 
 
 Le nombre et la taille des tuiles étant limités, la qualité et la résolution de la carte dépendent du nombre de tuiles. Un plus grand nombre de tuiles peut couvrir une zone plus vaste ou fournir davantage de détails : 250 tuiles sur un kilomètre carré offrent plus de détails que 100 tuiles sur la même zone. Essayez d'utiliser autant de tuiles que votre appareil le permet. Vous pouvez sélectionner de très petites tuiles le long du parcours, puis dézoomer et ajouter autour des tuiles plus grandes et moins détaillées pour couvrir les environs ou d'éventuels itinéraires de repli.
 
-![Plusieurs tuiles sélectionnées sur la carte](GeoImageToKmzMapEditor/Help/teselasvarias.png)
+![Plusieurs tuiles sélectionnées sur la carte](src/GeoImageToKmzMapEditor/Help/teselasvarias.png)
 
 <a id="interfaz"></a>
 ## Interface et navigation
@@ -111,7 +111,7 @@ Chargez un GPX et choisissez **Réduire la carte au contour du tracé**, le trac
 
 Vous pouvez aussi, dans **Tuiles sélectionnées**, activer **Sélectionner les tuiles du tracé**, choisir le tracé et la marge, puis cliquer sur **Sélectionner les tuiles**. Les cellules proches du parcours sont sélectionnées. Cette action remplace la sélection précédente ; vérifiez la carte et le compteur. Lorsque le maximum est atteint, aucune tuile supplémentaire n'est ajoutée et une partie du tracé peut rester non couverte. Modifiez le zoom, la marge et le maximum, puis relancez la sélection si vous souhaitez une autre couverture.
 
-![Sélection de tuiles le long d'un tracé](GeoImageToKmzMapEditor/Help/seleccion.png)
+![Sélection de tuiles le long d'un tracé](src/GeoImageToKmzMapEditor/Help/seleccion.png)
 
 <a id="ajustes-salida"></a>
 ## Paramètres de sortie et luminosité
