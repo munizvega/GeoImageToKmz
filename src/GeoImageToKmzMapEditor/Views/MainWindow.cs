@@ -6,6 +6,7 @@ using Avalonia.Data;
 using Avalonia.Input;
 using Avalonia.Layout;
 using Avalonia.Media;
+using Avalonia.Platform;
 using Avalonia.Platform.Storage;
 using Avalonia.Styling;
 using TifToKmz.ImageTools;
@@ -31,6 +32,7 @@ public sealed class MainWindow : Window
         DataContext = _viewModel;
 
         Title = Strings.AppTitle;
+        Icon = new WindowIcon(AssetLoader.Open(new Uri("avares://GeoImageToKmzMapEditor/Assets/GeoImageToKmz.ico")));
         Width = 1380;
         Height = 840;
         MinWidth = 950;

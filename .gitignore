@@ -8,3 +8,6 @@ riderModule.iml
 .junie
 
 *.user
+
+artifacts/
+publish/

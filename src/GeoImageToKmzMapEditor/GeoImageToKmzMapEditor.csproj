@@ -7,9 +7,13 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <ApplicationIcon>Assets\GeoImageToKmz.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
+        <AvaloniaResource Include="Assets/GeoImageToKmz.ico" />
+        <Content Include="Assets/GeoImageToKmz.ico" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+        <Content Include="Assets/GeoImageToKmz.png" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
         <Content Include="Help/guia*.html" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
         <Content Include="Help/*.png" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
         <PackageReference Include="Avalonia" Version="12.1.6" />
