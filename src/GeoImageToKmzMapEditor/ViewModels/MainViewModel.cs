@@ -467,7 +467,7 @@ public sealed class MainViewModel : ViewModelBase
             MapLayer? layer = await _projectService.AddMapLayerAsync(filePath, project);
             if (layer != null)
             {
-                if (Viewport.CurrentExtent.IsEmpty)
+                if (!layer.Extent.IsEmpty)
                 {
                     Viewport.SetExtent(layer.Extent.Inflate(1.05));
                 }
@@ -492,6 +492,7 @@ public sealed class MainViewModel : ViewModelBase
         var fileList = filePaths.ToList();
         Viewport.SetLoading(true, Strings.Loading, 0, isIndeterminate: fileList.Count <= 1);
         int count = 0;
+        MapLayer? firstLayer = null;
         MapLayer? lastLayer = null;
         try
         {
@@ -504,13 +505,14 @@ public sealed class MainViewModel : ViewModelBase
                 if (layer != null)
                 {
                     count++;
+                    firstLayer ??= layer;
                     lastLayer = layer;
                 }
             }
 
-            if (count > 0 && Viewport.CurrentExtent.IsEmpty)
+            if (firstLayer != null && !firstLayer.Extent.IsEmpty)
             {
-                ZoomToFullExtent();
+                Viewport.SetExtent(firstLayer.Extent.Inflate(1.05));
             }
 
             if (lastLayer != null)
@@ -599,12 +601,14 @@ public sealed class MainViewModel : ViewModelBase
         StatusMessage = string.Format(CultureInfo.CurrentCulture, Strings.ScanningFolder, Path.GetFileName(folderPath));
         try
         {
+            HashSet<MapLayer> existingLayers = _projectService.Layers.ToHashSet();
             int added = await _projectService.AddMapFolderAsync(folderPath, project);
             if (added > 0)
             {
-                if (Viewport.CurrentExtent.IsEmpty)
+                MapLayer? firstLayer = _projectService.Layers.FirstOrDefault(layer => !existingLayers.Contains(layer));
+                if (firstLayer != null && !firstLayer.Extent.IsEmpty)
                 {
-                    ZoomToFullExtent();
+                    Viewport.SetExtent(firstLayer.Extent.Inflate(1.05));
                 }
                 ExpandAndSelectFolder(folderPath);
                 StatusMessage = string.Format(CultureInfo.CurrentCulture, Strings.FolderMapsAdded, added, Path.GetFileName(folderPath));

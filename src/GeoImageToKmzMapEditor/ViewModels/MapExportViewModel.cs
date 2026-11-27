@@ -87,6 +87,7 @@ public sealed class MapExportViewModel : ViewModelBase
     public ObservableCollection<ExportAreaModeOption> AvailableModes { get; } = new();
     public ObservableCollection<TrackExportOption> AvailableTracks { get; } = new();
     public ObservableCollection<GeoExtent> SelectedTiles { get; } = new();
+    public bool HasTracks => AvailableTracks.Count > 0;
 
     public MapExportViewModel(MainViewModel mainVm)
     {
@@ -285,7 +286,7 @@ public sealed class MapExportViewModel : ViewModelBase
         get => _selectTrackTiles;
         set
         {
-            if (SetField(ref _selectTrackTiles, value))
+            if (SetField(ref _selectTrackTiles, value && HasTracks))
             {
                 OnPropertyChanged(nameof(IsTrackTilesSubPanelVisible));
             }
@@ -532,6 +533,14 @@ public sealed class MapExportViewModel : ViewModelBase
 
         SelectedTrackOption = optionToSelect ?? AvailableTracks.FirstOrDefault();
         SelectedTilesTrackOption = tilesOptionToSelect ?? optionToSelect ?? AvailableTracks.FirstOrDefault();
+        OnPropertyChanged(nameof(HasTracks));
+        if (!HasTracks)
+        {
+            bool wasSuppressingDirty = _isSuppressingDirty;
+            _isSuppressingDirty = true;
+            SelectTrackTiles = false;
+            _isSuppressingDirty = wasSuppressingDirty;
+        }
         if (IsTrackMode)
         {
             UpdateTrackContourCrop();

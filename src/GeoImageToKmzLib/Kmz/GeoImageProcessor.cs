@@ -154,7 +154,7 @@ public class GeoImageProcessor : IGeoImageProcessor
             string jpegTilesDirectory = Path.Combine(runDirectory, "jpeg-tiles");
             Directory.CreateDirectory(jpegTilesDirectory);
 
-            List<string> jpegTiles = new List<string>();
+            List<(string ImagePath, string GeoReferencePath)> jpegTiles = new();
             ReportProgress(progress, progressReport, ConversionProgressReport.ExportingJpeg());
             int totalTiles = brightTiles.Length;
             for (int i = 0; i < totalTiles; i++)
@@ -172,7 +172,7 @@ public class GeoImageProcessor : IGeoImageProcessor
                     });
 
                 _jpegExporter.Export(tile, jpegPath, options.Kmz.JpegQuality, tileProgress);
-                jpegTiles.Add(jpegPath);
+                jpegTiles.Add((jpegPath, tiles[i]));
             }
 
             detailedProgress?.Report(1.0);
@@ -189,9 +189,9 @@ public class GeoImageProcessor : IGeoImageProcessor
             WriteKml(jpegTiles, kml);
             using ZipArchive archive = ZipFile.Open(finalOutput, ZipArchiveMode.Create);
             archive.CreateEntryFromFile(kml, "doc.kml", CompressionLevel.Optimal);
-            foreach (string tile in jpegTiles)
+            foreach ((string imagePath, _) in jpegTiles)
             {
-                archive.CreateEntryFromFile(tile, $"files/{Path.GetFileName(tile)}", CompressionLevel.Optimal);
+                archive.CreateEntryFromFile(imagePath, $"files/{Path.GetFileName(imagePath)}", CompressionLevel.Optimal);
             }
             ReportProgress(progress, progressReport, ConversionProgressReport.Completed());
         }
@@ -358,7 +358,7 @@ public class GeoImageProcessor : IGeoImageProcessor
             string jpegTilesDirectory = Path.Combine(runDirectory, "jpeg-tiles");
             Directory.CreateDirectory(jpegTilesDirectory);
 
-            List<string> jpegTiles = new();
+            List<(string ImagePath, string GeoReferencePath)> jpegTiles = new();
             ReportProgress(progress, progressReport, ConversionProgressReport.ExportingJpeg());
             int totalTiles = brightTiles.Length;
             for (int i = 0; i < totalTiles; i++)
@@ -376,7 +376,7 @@ public class GeoImageProcessor : IGeoImageProcessor
                     });
 
                 _jpegExporter.Export(tile, jpegPath, options.Kmz.JpegQuality, tileProgress);
-                jpegTiles.Add(jpegPath);
+                jpegTiles.Add((jpegPath, tiles[i]));
             }
 
             detailedProgress?.Report(1.0);
@@ -393,9 +393,9 @@ public class GeoImageProcessor : IGeoImageProcessor
             WriteKml(jpegTiles, kml);
             using ZipArchive archive = ZipFile.Open(finalOutput, ZipArchiveMode.Create);
             archive.CreateEntryFromFile(kml, "doc.kml", CompressionLevel.Optimal);
-            foreach (string tile in jpegTiles)
+            foreach ((string imagePath, _) in jpegTiles)
             {
-                archive.CreateEntryFromFile(tile, $"files/{Path.GetFileName(tile)}", CompressionLevel.Optimal);
+                archive.CreateEntryFromFile(imagePath, $"files/{Path.GetFileName(imagePath)}", CompressionLevel.Optimal);
             }
             ReportProgress(progress, progressReport, ConversionProgressReport.Completed());
         }
@@ -465,20 +465,20 @@ public class GeoImageProcessor : IGeoImageProcessor
         }
     }
 
-    private static void WriteKml(IEnumerable<string> tiles, string outputPath)
+    private static void WriteKml(IEnumerable<(string ImagePath, string GeoReferencePath)> tiles, string outputPath)
     {
         XNamespace ns = "http://www.opengis.net/kml/2.2";
         XDocument document = new(new XDeclaration("1.0", "utf-8", null), new XElement(ns + "kml", new XElement(ns + "Document")));
         XElement root = document.Root!.Element(ns + "Document")!;
-        foreach (string tile in tiles)
+        foreach ((string imagePath, string geoReferencePath) in tiles)
         {
-            using Dataset dataset = Gdal.Open(tile, Access.GA_ReadOnly) ?? throw new InvalidOperationException($"Could not open tile '{tile}'.");
+            using Dataset dataset = Gdal.Open(geoReferencePath, Access.GA_ReadOnly) ?? throw new InvalidOperationException($"Could not open tile '{geoReferencePath}'.");
             double[] gt = new double[6]; dataset.GetGeoTransform(gt);
             double[] xs = [gt[0], gt[0] + dataset.RasterXSize * gt[1], gt[0] + dataset.RasterYSize * gt[2], gt[0] + dataset.RasterXSize * gt[1] + dataset.RasterYSize * gt[2]];
             double[] ys = [gt[3], gt[3] + dataset.RasterXSize * gt[4], gt[3] + dataset.RasterYSize * gt[5], gt[3] + dataset.RasterXSize * gt[4] + dataset.RasterYSize * gt[5]];
             XElement overlay = new(ns + "GroundOverlay",
-                new XElement(ns + "name", Path.GetFileNameWithoutExtension(tile)),
-                new XElement(ns + "Icon", new XElement(ns + "href", $"files/{Path.GetFileName(tile)}")),
+                new XElement(ns + "name", Path.GetFileNameWithoutExtension(imagePath)),
+                new XElement(ns + "Icon", new XElement(ns + "href", $"files/{Path.GetFileName(imagePath)}")),
                 new XElement(ns + "LatLonBox",
                     new XElement(ns + "north", ys.Max().ToString(CultureInfo.InvariantCulture)),
                     new XElement(ns + "south", ys.Min().ToString(CultureInfo.InvariantCulture)),

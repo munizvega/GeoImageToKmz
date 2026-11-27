@@ -1072,6 +1072,7 @@ public sealed class MainWindow : Window
         {
             Content = Strings.ExportSelectTrackTiles,
             IsChecked = _viewModel.Export.SelectTrackTiles,
+            IsEnabled = _viewModel.Export.HasTracks,
             FontSize = 12
         };
         selectTrackTilesCheckBox.IsCheckedChanged += (_, _) => _viewModel.Export.SelectTrackTiles = selectTrackTilesCheckBox.IsChecked ?? false;
@@ -1183,6 +1184,10 @@ public sealed class MainWindow : Window
                     selectTrackTilesCheckBox.IsChecked = _viewModel.Export.SelectTrackTiles;
                 }
                 trackTilesSubPanel.IsVisible = _viewModel.Export.SelectTrackTiles;
+            }
+            else if (e.PropertyName == nameof(MapExportViewModel.HasTracks))
+            {
+                selectTrackTilesCheckBox.IsEnabled = _viewModel.Export.HasTracks;
             }
             else if (e.PropertyName == nameof(MapExportViewModel.SelectedTilesTrackOption))
             {

@@ -138,6 +138,7 @@ public sealed class KmzExportWindow : Window
         {
             Content = Strings.ExportSelectTrackTiles,
             IsChecked = _mainVm.Export.SelectTrackTiles,
+            IsEnabled = _mainVm.Export.HasTracks,
             FontSize = 12
         };
         selectTrackTilesCheckBox.IsCheckedChanged += (_, _) => _mainVm.Export.SelectTrackTiles = selectTrackTilesCheckBox.IsChecked ?? false;
@@ -266,6 +267,10 @@ public sealed class KmzExportWindow : Window
                     selectTrackTilesCheckBox.IsChecked = _mainVm.Export.SelectTrackTiles;
                 }
                 trackTilesSubPanel.IsVisible = _mainVm.Export.SelectTrackTiles;
+            }
+            else if (e.PropertyName == nameof(MapExportViewModel.HasTracks))
+            {
+                selectTrackTilesCheckBox.IsEnabled = _mainVm.Export.HasTracks;
             }
             else if (e.PropertyName == nameof(MapExportViewModel.SelectedTilesTrackOption))
             {
