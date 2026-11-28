@@ -4,6 +4,11 @@
 
 Bereiten Sie Karten vor, wählen Sie einen Bereich aus und erstellen Sie eine KMZ-Datei für Ihren Kartenbetrachter oder ein kompatibles Gerät.
 
+## Downloads
+
+- [Linux](https://github.com/munizvega/GeoImageToKmz/releases/download/v1.0.0/GeoImageToKmzMapEditorLinux.zip)
+- [Windows](https://github.com/munizvega/GeoImageToKmz/releases/download/v1.0.0/GeoImageToKmzMapEditorWindows.zip)
+
 ## Inhalt
 
 - [Erste Schritte](#inicio)

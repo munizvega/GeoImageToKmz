@@ -4,6 +4,11 @@
 
 Prepare maps, select an area, and create a KMZ for your viewer or compatible device.
 
+## Downloads
+
+- [Linux](https://github.com/munizvega/GeoImageToKmz/releases/download/v1.0.0/GeoImageToKmzMapEditorLinux.zip)
+- [Windows](https://github.com/munizvega/GeoImageToKmz/releases/download/v1.0.0/GeoImageToKmzMapEditorWindows.zip)
+
 ## Contents
 
 - [Getting started](#inicio)
